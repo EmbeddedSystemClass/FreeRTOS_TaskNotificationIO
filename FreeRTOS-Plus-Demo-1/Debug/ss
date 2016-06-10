@@ -1,0 +1,5453 @@
+# 1 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+# 1 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Debug//"
+# 1 "<built-in>"
+#define __STDC__ 1
+#define __STDC_HOSTED__ 1
+#define __GNUC__ 4
+#define __GNUC_MINOR__ 9
+#define __GNUC_PATCHLEVEL__ 3
+#define __VERSION__ "4.9.3 20150303 (release) [ARM/embedded-4_9-branch revision 221220]"
+#define __ATOMIC_RELAXED 0
+#define __ATOMIC_SEQ_CST 5
+#define __ATOMIC_ACQUIRE 2
+#define __ATOMIC_RELEASE 3
+#define __ATOMIC_ACQ_REL 4
+#define __ATOMIC_CONSUME 1
+#define __FINITE_MATH_ONLY__ 0
+#define __SIZEOF_INT__ 4
+#define __SIZEOF_LONG__ 4
+#define __SIZEOF_LONG_LONG__ 8
+#define __SIZEOF_SHORT__ 2
+#define __SIZEOF_FLOAT__ 4
+#define __SIZEOF_DOUBLE__ 8
+#define __SIZEOF_LONG_DOUBLE__ 8
+#define __SIZEOF_SIZE_T__ 4
+#define __CHAR_BIT__ 8
+#define __BIGGEST_ALIGNMENT__ 8
+#define __ORDER_LITTLE_ENDIAN__ 1234
+#define __ORDER_BIG_ENDIAN__ 4321
+#define __ORDER_PDP_ENDIAN__ 3412
+#define __BYTE_ORDER__ __ORDER_LITTLE_ENDIAN__
+#define __FLOAT_WORD_ORDER__ __ORDER_LITTLE_ENDIAN__
+#define __SIZEOF_POINTER__ 4
+#define __SIZE_TYPE__ unsigned int
+#define __PTRDIFF_TYPE__ int
+#define __WCHAR_TYPE__ unsigned int
+#define __WINT_TYPE__ unsigned int
+#define __INTMAX_TYPE__ long long int
+#define __UINTMAX_TYPE__ long long unsigned int
+#define __CHAR16_TYPE__ short unsigned int
+#define __CHAR32_TYPE__ long unsigned int
+#define __SIG_ATOMIC_TYPE__ int
+#define __INT8_TYPE__ signed char
+#define __INT16_TYPE__ short int
+#define __INT32_TYPE__ long int
+#define __INT64_TYPE__ long long int
+#define __UINT8_TYPE__ unsigned char
+#define __UINT16_TYPE__ short unsigned int
+#define __UINT32_TYPE__ long unsigned int
+#define __UINT64_TYPE__ long long unsigned int
+#define __INT_LEAST8_TYPE__ signed char
+#define __INT_LEAST16_TYPE__ short int
+#define __INT_LEAST32_TYPE__ long int
+#define __INT_LEAST64_TYPE__ long long int
+#define __UINT_LEAST8_TYPE__ unsigned char
+#define __UINT_LEAST16_TYPE__ short unsigned int
+#define __UINT_LEAST32_TYPE__ long unsigned int
+#define __UINT_LEAST64_TYPE__ long long unsigned int
+#define __INT_FAST8_TYPE__ int
+#define __INT_FAST16_TYPE__ int
+#define __INT_FAST32_TYPE__ int
+#define __INT_FAST64_TYPE__ long long int
+#define __UINT_FAST8_TYPE__ unsigned int
+#define __UINT_FAST16_TYPE__ unsigned int
+#define __UINT_FAST32_TYPE__ unsigned int
+#define __UINT_FAST64_TYPE__ long long unsigned int
+#define __INTPTR_TYPE__ int
+#define __UINTPTR_TYPE__ unsigned int
+#define __has_include(STR) __has_include__(STR)
+#define __has_include_next(STR) __has_include_next__(STR)
+#define __GXX_ABI_VERSION 1002
+#define __SCHAR_MAX__ 127
+#define __SHRT_MAX__ 32767
+#define __INT_MAX__ 2147483647
+#define __LONG_MAX__ 2147483647L
+#define __LONG_LONG_MAX__ 9223372036854775807LL
+#define __WCHAR_MAX__ 4294967295U
+#define __WCHAR_MIN__ 0U
+#define __WINT_MAX__ 4294967295U
+#define __WINT_MIN__ 0U
+#define __PTRDIFF_MAX__ 2147483647
+#define __SIZE_MAX__ 4294967295U
+#define __INTMAX_MAX__ 9223372036854775807LL
+#define __INTMAX_C(c) c ## LL
+#define __UINTMAX_MAX__ 18446744073709551615ULL
+#define __UINTMAX_C(c) c ## ULL
+#define __SIG_ATOMIC_MAX__ 2147483647
+#define __SIG_ATOMIC_MIN__ (-__SIG_ATOMIC_MAX__ - 1)
+#define __INT8_MAX__ 127
+#define __INT16_MAX__ 32767
+#define __INT32_MAX__ 2147483647L
+#define __INT64_MAX__ 9223372036854775807LL
+#define __UINT8_MAX__ 255
+#define __UINT16_MAX__ 65535
+#define __UINT32_MAX__ 4294967295UL
+#define __UINT64_MAX__ 18446744073709551615ULL
+#define __INT_LEAST8_MAX__ 127
+#define __INT8_C(c) c
+#define __INT_LEAST16_MAX__ 32767
+#define __INT16_C(c) c
+#define __INT_LEAST32_MAX__ 2147483647L
+#define __INT32_C(c) c ## L
+#define __INT_LEAST64_MAX__ 9223372036854775807LL
+#define __INT64_C(c) c ## LL
+#define __UINT_LEAST8_MAX__ 255
+#define __UINT8_C(c) c
+#define __UINT_LEAST16_MAX__ 65535
+#define __UINT16_C(c) c
+#define __UINT_LEAST32_MAX__ 4294967295UL
+#define __UINT32_C(c) c ## UL
+#define __UINT_LEAST64_MAX__ 18446744073709551615ULL
+#define __UINT64_C(c) c ## ULL
+#define __INT_FAST8_MAX__ 2147483647
+#define __INT_FAST16_MAX__ 2147483647
+#define __INT_FAST32_MAX__ 2147483647
+#define __INT_FAST64_MAX__ 9223372036854775807LL
+#define __UINT_FAST8_MAX__ 4294967295U
+#define __UINT_FAST16_MAX__ 4294967295U
+#define __UINT_FAST32_MAX__ 4294967295U
+#define __UINT_FAST64_MAX__ 18446744073709551615ULL
+#define __INTPTR_MAX__ 2147483647
+#define __UINTPTR_MAX__ 4294967295U
+#define __GCC_IEC_559 0
+#define __GCC_IEC_559_COMPLEX 0
+#define __FLT_EVAL_METHOD__ 0
+#define __DEC_EVAL_METHOD__ 2
+#define __FLT_RADIX__ 2
+#define __FLT_MANT_DIG__ 24
+#define __FLT_DIG__ 6
+#define __FLT_MIN_EXP__ (-125)
+#define __FLT_MIN_10_EXP__ (-37)
+#define __FLT_MAX_EXP__ 128
+#define __FLT_MAX_10_EXP__ 38
+#define __FLT_DECIMAL_DIG__ 9
+#define __FLT_MAX__ 3.4028234663852886e+38F
+#define __FLT_MIN__ 1.1754943508222875e-38F
+#define __FLT_EPSILON__ 1.1920928955078125e-7F
+#define __FLT_DENORM_MIN__ 1.4012984643248171e-45F
+#define __FLT_HAS_DENORM__ 1
+#define __FLT_HAS_INFINITY__ 1
+#define __FLT_HAS_QUIET_NAN__ 1
+#define __DBL_MANT_DIG__ 53
+#define __DBL_DIG__ 15
+#define __DBL_MIN_EXP__ (-1021)
+#define __DBL_MIN_10_EXP__ (-307)
+#define __DBL_MAX_EXP__ 1024
+#define __DBL_MAX_10_EXP__ 308
+#define __DBL_DECIMAL_DIG__ 17
+#define __DBL_MAX__ ((double)1.7976931348623157e+308L)
+#define __DBL_MIN__ ((double)2.2250738585072014e-308L)
+#define __DBL_EPSILON__ ((double)2.2204460492503131e-16L)
+#define __DBL_DENORM_MIN__ ((double)4.9406564584124654e-324L)
+#define __DBL_HAS_DENORM__ 1
+#define __DBL_HAS_INFINITY__ 1
+#define __DBL_HAS_QUIET_NAN__ 1
+#define __LDBL_MANT_DIG__ 53
+#define __LDBL_DIG__ 15
+#define __LDBL_MIN_EXP__ (-1021)
+#define __LDBL_MIN_10_EXP__ (-307)
+#define __LDBL_MAX_EXP__ 1024
+#define __LDBL_MAX_10_EXP__ 308
+#define __DECIMAL_DIG__ 17
+#define __LDBL_MAX__ 1.7976931348623157e+308L
+#define __LDBL_MIN__ 2.2250738585072014e-308L
+#define __LDBL_EPSILON__ 2.2204460492503131e-16L
+#define __LDBL_DENORM_MIN__ 4.9406564584124654e-324L
+#define __LDBL_HAS_DENORM__ 1
+#define __LDBL_HAS_INFINITY__ 1
+#define __LDBL_HAS_QUIET_NAN__ 1
+#define __DEC32_MANT_DIG__ 7
+#define __DEC32_MIN_EXP__ (-94)
+#define __DEC32_MAX_EXP__ 97
+#define __DEC32_MIN__ 1E-95DF
+#define __DEC32_MAX__ 9.999999E96DF
+#define __DEC32_EPSILON__ 1E-6DF
+#define __DEC32_SUBNORMAL_MIN__ 0.000001E-95DF
+#define __DEC64_MANT_DIG__ 16
+#define __DEC64_MIN_EXP__ (-382)
+#define __DEC64_MAX_EXP__ 385
+#define __DEC64_MIN__ 1E-383DD
+#define __DEC64_MAX__ 9.999999999999999E384DD
+#define __DEC64_EPSILON__ 1E-15DD
+#define __DEC64_SUBNORMAL_MIN__ 0.000000000000001E-383DD
+#define __DEC128_MANT_DIG__ 34
+#define __DEC128_MIN_EXP__ (-6142)
+#define __DEC128_MAX_EXP__ 6145
+#define __DEC128_MIN__ 1E-6143DL
+#define __DEC128_MAX__ 9.999999999999999999999999999999999E6144DL
+#define __DEC128_EPSILON__ 1E-33DL
+#define __DEC128_SUBNORMAL_MIN__ 0.000000000000000000000000000000001E-6143DL
+#define __SFRACT_FBIT__ 7
+#define __SFRACT_IBIT__ 0
+#define __SFRACT_MIN__ (-0.5HR-0.5HR)
+#define __SFRACT_MAX__ 0X7FP-7HR
+#define __SFRACT_EPSILON__ 0x1P-7HR
+#define __USFRACT_FBIT__ 8
+#define __USFRACT_IBIT__ 0
+#define __USFRACT_MIN__ 0.0UHR
+#define __USFRACT_MAX__ 0XFFP-8UHR
+#define __USFRACT_EPSILON__ 0x1P-8UHR
+#define __FRACT_FBIT__ 15
+#define __FRACT_IBIT__ 0
+#define __FRACT_MIN__ (-0.5R-0.5R)
+#define __FRACT_MAX__ 0X7FFFP-15R
+#define __FRACT_EPSILON__ 0x1P-15R
+#define __UFRACT_FBIT__ 16
+#define __UFRACT_IBIT__ 0
+#define __UFRACT_MIN__ 0.0UR
+#define __UFRACT_MAX__ 0XFFFFP-16UR
+#define __UFRACT_EPSILON__ 0x1P-16UR
+#define __LFRACT_FBIT__ 31
+#define __LFRACT_IBIT__ 0
+#define __LFRACT_MIN__ (-0.5LR-0.5LR)
+#define __LFRACT_MAX__ 0X7FFFFFFFP-31LR
+#define __LFRACT_EPSILON__ 0x1P-31LR
+#define __ULFRACT_FBIT__ 32
+#define __ULFRACT_IBIT__ 0
+#define __ULFRACT_MIN__ 0.0ULR
+#define __ULFRACT_MAX__ 0XFFFFFFFFP-32ULR
+#define __ULFRACT_EPSILON__ 0x1P-32ULR
+#define __LLFRACT_FBIT__ 63
+#define __LLFRACT_IBIT__ 0
+#define __LLFRACT_MIN__ (-0.5LLR-0.5LLR)
+#define __LLFRACT_MAX__ 0X7FFFFFFFFFFFFFFFP-63LLR
+#define __LLFRACT_EPSILON__ 0x1P-63LLR
+#define __ULLFRACT_FBIT__ 64
+#define __ULLFRACT_IBIT__ 0
+#define __ULLFRACT_MIN__ 0.0ULLR
+#define __ULLFRACT_MAX__ 0XFFFFFFFFFFFFFFFFP-64ULLR
+#define __ULLFRACT_EPSILON__ 0x1P-64ULLR
+#define __SACCUM_FBIT__ 7
+#define __SACCUM_IBIT__ 8
+#define __SACCUM_MIN__ (-0X1P7HK-0X1P7HK)
+#define __SACCUM_MAX__ 0X7FFFP-7HK
+#define __SACCUM_EPSILON__ 0x1P-7HK
+#define __USACCUM_FBIT__ 8
+#define __USACCUM_IBIT__ 8
+#define __USACCUM_MIN__ 0.0UHK
+#define __USACCUM_MAX__ 0XFFFFP-8UHK
+#define __USACCUM_EPSILON__ 0x1P-8UHK
+#define __ACCUM_FBIT__ 15
+#define __ACCUM_IBIT__ 16
+#define __ACCUM_MIN__ (-0X1P15K-0X1P15K)
+#define __ACCUM_MAX__ 0X7FFFFFFFP-15K
+#define __ACCUM_EPSILON__ 0x1P-15K
+#define __UACCUM_FBIT__ 16
+#define __UACCUM_IBIT__ 16
+#define __UACCUM_MIN__ 0.0UK
+#define __UACCUM_MAX__ 0XFFFFFFFFP-16UK
+#define __UACCUM_EPSILON__ 0x1P-16UK
+#define __LACCUM_FBIT__ 31
+#define __LACCUM_IBIT__ 32
+#define __LACCUM_MIN__ (-0X1P31LK-0X1P31LK)
+#define __LACCUM_MAX__ 0X7FFFFFFFFFFFFFFFP-31LK
+#define __LACCUM_EPSILON__ 0x1P-31LK
+#define __ULACCUM_FBIT__ 32
+#define __ULACCUM_IBIT__ 32
+#define __ULACCUM_MIN__ 0.0ULK
+#define __ULACCUM_MAX__ 0XFFFFFFFFFFFFFFFFP-32ULK
+#define __ULACCUM_EPSILON__ 0x1P-32ULK
+#define __LLACCUM_FBIT__ 31
+#define __LLACCUM_IBIT__ 32
+#define __LLACCUM_MIN__ (-0X1P31LLK-0X1P31LLK)
+#define __LLACCUM_MAX__ 0X7FFFFFFFFFFFFFFFP-31LLK
+#define __LLACCUM_EPSILON__ 0x1P-31LLK
+#define __ULLACCUM_FBIT__ 32
+#define __ULLACCUM_IBIT__ 32
+#define __ULLACCUM_MIN__ 0.0ULLK
+#define __ULLACCUM_MAX__ 0XFFFFFFFFFFFFFFFFP-32ULLK
+#define __ULLACCUM_EPSILON__ 0x1P-32ULLK
+#define __QQ_FBIT__ 7
+#define __QQ_IBIT__ 0
+#define __HQ_FBIT__ 15
+#define __HQ_IBIT__ 0
+#define __SQ_FBIT__ 31
+#define __SQ_IBIT__ 0
+#define __DQ_FBIT__ 63
+#define __DQ_IBIT__ 0
+#define __TQ_FBIT__ 127
+#define __TQ_IBIT__ 0
+#define __UQQ_FBIT__ 8
+#define __UQQ_IBIT__ 0
+#define __UHQ_FBIT__ 16
+#define __UHQ_IBIT__ 0
+#define __USQ_FBIT__ 32
+#define __USQ_IBIT__ 0
+#define __UDQ_FBIT__ 64
+#define __UDQ_IBIT__ 0
+#define __UTQ_FBIT__ 128
+#define __UTQ_IBIT__ 0
+#define __HA_FBIT__ 7
+#define __HA_IBIT__ 8
+#define __SA_FBIT__ 15
+#define __SA_IBIT__ 16
+#define __DA_FBIT__ 31
+#define __DA_IBIT__ 32
+#define __TA_FBIT__ 63
+#define __TA_IBIT__ 64
+#define __UHA_FBIT__ 8
+#define __UHA_IBIT__ 8
+#define __USA_FBIT__ 16
+#define __USA_IBIT__ 16
+#define __UDA_FBIT__ 32
+#define __UDA_IBIT__ 32
+#define __UTA_FBIT__ 64
+#define __UTA_IBIT__ 64
+#define __REGISTER_PREFIX__ 
+#define __USER_LABEL_PREFIX__ 
+#define __GNUC_GNU_INLINE__ 1
+#define __NO_INLINE__ 1
+#define __CHAR_UNSIGNED__ 1
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_1 1
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_2 1
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_4 1
+#define __GCC_ATOMIC_BOOL_LOCK_FREE 2
+#define __GCC_ATOMIC_CHAR_LOCK_FREE 2
+#define __GCC_ATOMIC_CHAR16_T_LOCK_FREE 2
+#define __GCC_ATOMIC_CHAR32_T_LOCK_FREE 2
+#define __GCC_ATOMIC_WCHAR_T_LOCK_FREE 2
+#define __GCC_ATOMIC_SHORT_LOCK_FREE 2
+#define __GCC_ATOMIC_INT_LOCK_FREE 2
+#define __GCC_ATOMIC_LONG_LOCK_FREE 2
+#define __GCC_ATOMIC_LLONG_LOCK_FREE 1
+#define __GCC_ATOMIC_TEST_AND_SET_TRUEVAL 1
+#define __GCC_ATOMIC_POINTER_LOCK_FREE 2
+#define __GCC_HAVE_DWARF2_CFI_ASM 1
+#define __PRAGMA_REDEFINE_EXTNAME 1
+#define __SIZEOF_WCHAR_T__ 4
+#define __SIZEOF_WINT_T__ 4
+#define __SIZEOF_PTRDIFF_T__ 4
+#define __ARM_FEATURE_QBIT 1
+#define __ARM_FEATURE_SAT 1
+#define __ARM_FEATURE_UNALIGNED 1
+#define __ARM_32BIT_STATE 1
+#define __ARM_FEATURE_LDREX 7
+#define __ARM_FEATURE_CLZ 1
+#define __ARM_SIZEOF_MINIMAL_ENUM 1
+#define __ARM_SIZEOF_WCHAR_T 4
+#define __ARM_ARCH_PROFILE 77
+#define __arm__ 1
+#define __ARM_ARCH 7
+#define __APCS_32__ 1
+#define __thumb__ 1
+#define __thumb2__ 1
+#define __ARM_ARCH_ISA_THUMB 2
+#define __ARMEL__ 1
+#define __THUMBEL__ 1
+#define __SOFTFP__ 1
+#define __VFP_FP__ 1
+#define __ARM_FP 12
+#define __ARM_NEON_FP 4
+#define __THUMB_INTERWORK__ 1
+#define __ARM_ARCH_7M__ 1
+#define __ARM_PCS 1
+#define __ARM_EABI__ 1
+#define __ARM_ARCH_EXT_IDIV__ 1
+#define __GXX_TYPEINFO_EQUALITY_INLINE 0
+#define __ELF__ 1
+# 1 "<command-line>"
+#define __USES_INITFINI__ 1
+#define __USE_LPCOPEN 1
+#define CORE_M3 1
+#define DEBUG 1
+#define __CODE_RED 1
+#define __REDLIB__ 1
+#define __REDLIB__ 1
+# 1 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+# 71 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+# 1 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/stdlib.h" 1 3 4
+# 9 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/stdlib.h" 3 4
+#define __STDLIB_H_INCLUDED 
+
+# 1 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/redlib_version.h" 1 3 4
+# 14 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/redlib_version.h" 3 4
+#define REDLIB_VERSION_H_ 
+
+
+#define __REDLIB_INTERFACE_VERSION__ 20000
+# 12 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/stdlib.h" 2 3 4
+
+
+#define __CODEMIST 
+
+
+# 1 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/libconfig.h" 1 3 4
+# 25 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/libconfig.h" 3 4
+# 1 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/libconfig-arm.h" 1 3 4
+# 18 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/libconfig-arm.h" 3 4
+#define __SYS_LIBCONFIG_H_INCLUDED 
+
+
+
+
+
+
+#define restrict __restrict__
+# 39 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/libconfig-arm.h" 3 4
+#define __THREAD 
+
+
+
+
+
+
+
+#define __START_CRITICAL_REGION() do {} while (0)
+#define __END_CRITICAL_REGION() do {} while (0)
+
+
+#define __SIZEOF_CHAR 1
+
+
+#define __SIZEOF_SHORT 2
+
+
+#define __SIZEOF_INT 4
+
+
+#define __SIZEOF_LONG 4
+
+
+#define __SIZEOF_LONG_LONG 8
+
+
+#define __SIZEOF_FLOAT 4
+
+
+#define __SIZEOF_DOUBLE 8
+
+
+#define __SIZEOF_LONG_DOUBLE 12
+
+
+#define __SIZEOF_FLOAT__COMPLEX 8
+
+
+#define __SIZEOF__COMPLEX 16
+
+
+#define __SIZEOF_DOUBLE__COMPLEX 16
+
+
+#define __SIZEOF_LONG_DOUBLE__COMPLEX 24
+
+
+#define __SIZEOF_PTR 4
+# 97 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/libconfig-arm.h" 3 4
+#define __JMP_BUF_SIZE 22
+
+
+#define __EXIT_FAILURE 1
+#define __EXIT_SUCCESS 0
+
+
+
+
+
+
+#define __CLK_TCK 100
+# 122 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/libconfig-arm.h" 3 4
+#define BYTESEX_EVEN 1
+#undef BYTESEX_ODD
+
+
+
+#define DOUBLE_EXP_LAST 1
+#undef OTHER_WORD_ORDER_FOR_FP_NUMBERS
+
+
+#define MAXSTORE 0x03ffffff
+#define HOST_LACKS_ALLOC 1
+
+struct __FILE_struct
+{
+    unsigned char *__ptr;
+    int __icnt;
+    int __ocnt;
+    int __flag;
+
+
+
+    unsigned char *__base;
+
+#define FILEHANDLE int
+
+    int __file;
+    long __pos;
+    int __bufsiz;
+    int __signature;
+    struct __extradata *__extrap;
+};
+# 163 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/libconfig-arm.h" 3 4
+extern int _interrupts_off;
+extern void _raise_stacked_interrupts(void);
+extern void _postmortem(void);
+extern void _mapstore(void);
+extern void _Cwrite_profile(char *filename);
+
+extern void _init_alloc(void), _initio(char*, char*, char*),
+            _terminateio(void), _lib_shutdown(void), _signal_init(void),
+            _exit_init(void);
+
+extern int _signal_real_handler(int sig);
+
+
+#define __SIZE_T_DEFINED 
+
+
+
+typedef unsigned int size_t;
+
+
+
+extern void *_Csys_alloc(size_t n);
+extern void _init_user_alloc(void);
+extern void _terminate_user_alloc(void);
+extern void _Csys_msg(const char *);
+extern void _deferredlazyseek(struct __FILE_struct *stream);
+extern int _fflush(struct __FILE_struct *stream);
+extern int _Cwritebuf(unsigned char *buf, int len, struct __FILE_struct *stream);
+extern struct __FILE_struct *_fdopen(int fh, const char *mode, struct __FILE_struct *iob);
+extern int _Cread(char *ptr, int nbytes, struct __FILE_struct *stream);
+extern int _Cwrite(const char *ptr, int nbytes, struct __FILE_struct *stream);
+extern int _fillb2(struct __FILE_struct *stream);
+
+#define _exit(n) __sys_appexit()
+# 207 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/libconfig-arm.h" 3 4
+#define _kernel_sdiv10(x) ((x)/10)
+#define _kernel_sdiv(x,y) ((y)/(x))
+#define _kernel_udiv10(v) ((unsigned)((v))/10)
+
+
+
+
+
+#define NONHANDLE ((FILEHANDLE)(-1))
+
+
+#define __TIME_T_DEFINED 
+typedef unsigned int time_t;
+
+
+
+#define __CLOCK_T_DEFINED 
+typedef unsigned int clock_t;
+
+
+void __sys_appexit (void);
+clock_t __sys_clock(void);
+int __sys_close(int iFileHandle);
+int __sys_flen(int handle);
+int __sys_istty(int handle);
+int __sys_open(const char *pcFileName, int iFileMode, int len);
+int __sys_read(int iFileHandle, char *pcBuffer, int iLen);
+int __sys_readc(void);
+int __sys_remove(const char *pcFileName, int len);
+int __sys_rename(const char *oldFileName, int oldlen, const char *newFileName, int newlen);
+int __sys_seek(int handle, int pos);
+time_t __sys_time(void);
+int __sys_tmpnam(char *pcBuf, int iTargetId, int iBufLen);
+int __sys_write(int iFileHandle, char *pcBuffer, int iLength);
+void __sys_write0(char *pcBuffer);
+
+#define _Csys_istty_(fh) __sys_istty((int)fh)
+#define _Csys_seek_(fh,pos) __sys_seek((int)fh,(int)pos)
+#define _Csys_flen_(fh) __sys_flen((int)fh)
+#define _ttywrite(buf,len,wh) __sys_write(0,(int)(buf),len)
+#define _Csys_write_(fh,buf,len,mode) __sys_write(fh,buf,len)
+extern int _Csys_read_(int fh, unsigned char *buf, int len, int mode);
+#define _Csys_close_(fh) __sys_close((int)(fh))
+
+#define _Csys_open(name,mode,len) __sys_open(name,mode,len)
+
+
+
+
+
+
+
+#define FLOAT64 double
+# 282 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/libconfig-arm.h" 3 4
+typedef union
+{
+ struct
+ {
+  unsigned mlo;
+  unsigned int mhi:20, x:11, s:1;
+ } i;
+  double d;
+} fp_number;
+# 313 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/libconfig-arm.h" 3 4
+#define _fp_normalize(high,low) { fp_number temp; double temp1; temp.d = high; temp.i.mlo = 0; temp1 = high - temp.d; low += temp1; high = temp.d; }
+# 323 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/libconfig-arm.h" 3 4
+extern struct __FILE_struct *_fopen_string_file(const char *data, int length);
+
+extern int _number_of_exit_functions;
+extern void (*_exitvector[])(void);
+
+
+
+
+
+extern double _frexpl(double, int *);
+extern double _ldexpl(double, int);
+
+extern double _sincos(double x, double y, int sign, int coscase);
+extern double _tancot(double, int);
+extern double _asinacos(double, int);
+# 26 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/libconfig.h" 2 3 4
+# 18 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/stdlib.h" 2 3 4
+
+
+
+#define WCHAR_T_DEFINED 
+typedef unsigned int wchar_t;
+
+
+
+#define NULL ((void *)0)
+
+
+typedef struct div_t { int quot, rem; } div_t;
+
+typedef struct ldiv_t { long int quot, rem; } ldiv_t;
+
+typedef struct lldiv_t { long long int quot, rem; } lldiv_t;
+
+
+#define EXIT_FAILURE __EXIT_FAILURE
+#define EXIT_SUCCESS __EXIT_SUCCESS
+
+#define RAND_MAX 0x7fffffff
+
+
+
+
+#define MB_CUR_MAX 1
+
+
+
+
+
+
+extern double atof(const char *nptr);
+extern int atoi(const char *nptr);
+extern long int atol(const char *nptr);
+
+extern double strtod(const char * __restrict__ nptr,
+                     char ** __restrict__ endptr);
+extern float strtof(const char * __restrict__ nptr,
+                    char ** __restrict__ endptr);
+
+extern long int strtol(const char * __restrict__ nptr,
+                       char ** __restrict__ endptr, int base);
+
+extern unsigned long int strtoul(const char * __restrict__ nptr,
+                                 char ** __restrict__ endptr, int base);
+
+extern int rand(void);
+extern void srand(unsigned int seed);
+extern void *calloc(size_t nmemb, size_t size);
+extern void free(void *ptr);
+extern void *malloc(size_t size);
+extern void *realloc(void *ptr, size_t size);
+extern void abort(void);
+extern int atexit(void (*func)(void));
+extern void exit(int status);
+
+extern char *getenv(const char *name);
+extern int system(const char *string);
+extern void *bsearch(const void *key, const void *base,
+                     size_t nmemb, size_t size,
+                     int (*compar)(const void *, const void *));
+extern void qsort(void *base, size_t nmemb, size_t size,
+                  int (*compar)(const void *, const void *));
+extern int abs(int j);
+extern long int labs(long int j);
+
+extern div_t div(int numer, int denom);
+extern ldiv_t ldiv(long int numer, long int denom);
+
+extern int mblen(const char *s, size_t n);
+extern int mbtowc(wchar_t * __restrict__ pwc,
+                  const char * __restrict__ s, size_t n);
+extern int wctomb(char *s, wchar_t wchar);
+extern size_t mbstowcs(wchar_t * __restrict__ pwcs,
+                       const char * __restrict__ s, size_t n);
+extern size_t wcstombs(char * __restrict__ s,
+                       const wchar_t * __restrict__ pwcs, size_t n);
+
+
+
+
+extern char * uitoa(unsigned int value, char *vstring, unsigned int base);
+extern char * itoa(int value, char *vstring, unsigned int base);
+# 72 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c" 2
+# 1 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/string.h" 1 3 4
+# 10 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/string.h" 3 4
+#define __STRING_H_INCLUDED 
+
+
+
+
+
+
+
+# 1 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/libconfig.h" 1 3 4
+# 19 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/string.h" 2 3 4
+# 33 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/string.h" 3 4
+extern void *memcpy(void * __restrict__ __s1,
+                   const void * __restrict__ __s2, size_t __n);
+extern void *memmove(void *__s1, const void *__s2, size_t __n);
+extern char *strcpy(char * __restrict__ __s1,
+                    const char * __restrict__ __s2);
+extern char *strncpy(char * __restrict__ __s1,
+                     const char * __restrict__ __s2, size_t __n);
+extern char *strcat(char * __restrict__ __s1,
+                    const char * __restrict__ __s2);
+extern char *strncat(char * __restrict__ __s1,
+                     const char * __restrict__ __s2, size_t __n);
+extern int memcmp(const void *__s1, const void *__s2, size_t __n);
+extern int strcmp(const char *__s1, const char *__s2);
+extern int strcoll(const char *__s1, const char *__s2);
+extern int strncmp(const char *__s1, const char *__s2, size_t __n);
+                   size_t strxfrm(char * __restrict__ __s1,
+                   const char * __restrict__ __s2, size_t ____n);
+extern void *memchr(const void *__s, int __c, size_t ____n);
+extern char *strchr(const char *__s, int __c);
+extern size_t strcspn(const char *__s1, const char *__s2);
+extern char *strpbrk(const char *__s1, const char *__s2);
+extern char *strrchr(const char *s, int c);
+extern size_t strspn(const char *__s1, const char *__s2);
+extern char *strstr(const char *__s1, const char *__s2);
+extern char *strtok(char * __restrict__ __s1,
+                    const char * __restrict__ __s2);
+extern void *memset(void *__s, int __c, size_t __n);
+extern char *strerror(int __errnum);
+extern size_t strlen(const char *__s);
+
+
+
+
+extern int strncasecmp(char const *s1, char const *s2, size_t n) ;
+extern int strcasecmp(const char * s1, const char * s2);
+# 73 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c" 2
+# 81 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+#define MPU_WRAPPERS_INCLUDED_FROM_API_FILE 
+
+
+# 1 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h" 1
+# 71 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h"
+#define INC_FREERTOS_H 
+
+
+
+
+# 1 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/stddef.h" 1 3 4
+# 9 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/stddef.h" 3 4
+#define __STDDEF_H_INCLUDED 
+
+
+
+
+
+
+
+# 1 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/libconfig.h" 1 3 4
+# 18 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/stddef.h" 2 3 4
+
+typedef int ptrdiff_t;
+# 30 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/stddef.h" 3 4
+#define offsetof(type,member_designator) ((size_t)((char *)&(((type *)0)->member_designator) - (char *)0))
+# 77 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h" 2
+# 91 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h"
+# 1 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/stdint.h" 1 3 4
+# 11 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/stdint.h" 3 4
+#define __STDINT_H_INCLUDED 
+
+
+
+
+
+
+
+# 1 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/sys/libconfig.h" 1 3 4
+# 20 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/stdint.h" 2 3 4
+# 28 "/usr/local/lpcxpresso_7.8.0_426/lpcxpresso/tools/redlib/include/stdint.h" 3 4
+typedef signed char int8_t;
+typedef unsigned char uint8_t;
+#define INT8_C(value) ((signed char)(value))
+#define UINT8_C(value) ((unsigned char)(value))
+typedef signed char int_least8_t;
+typedef unsigned char uint_least8_t;
+#define INT8_MIN (-0x80)
+#define INT8_MAX 0x7f
+#define UINT8_MAX 0xffU
+#define INT_LEAST8_MIN (-0x80)
+#define INT_LEAST8_MAX 0x7f
+#define UINT_LEAST8_MAX 0xffU
+
+typedef int int_fast8_t;
+typedef unsigned int uint_fast8_t;
+
+
+#define INT_FAST8_MIN (-0x80000000)
+#define INT_FAST8_MAX 0x7fffffff
+#define UINT_FAST8_MAX 0xffffffffU
+
+
+
+#define __PRIdFAST8 "%d"
+#define __PRIiFAST8 "%i"
+#define __PRIoFAST8 "%o"
+#define __PRIuFAST8 "%u"
+#define __PRIxFAST8 "%x"
+#define __PRIXFAST8 "%X"
+#define __SCNdFAST8 "%d"
+#define __SCNiFAST8 "%i"
+#define __SCNoFAST8 "%o"
+#define __SCNuFAST8 "%u"
+#define __SCNxFAST8 "%x"
+
+
+
+#define __PRId8 "%hhd"
+#define __PRIdLEAST8 "%hhd"
+#define __PRIi8 "%hhi"
+#define __PRIiLEAST8 "%hhi"
+#define __PRIo8 "%hho"
+#define __PRIoLEAST8 "%hho"
+#define __PRIu8 "%hhu"
+#define __PRIuLEAST8 "%hhu"
+#define __PRIx8 "%hhx"
+#define __PRIxLEAST8 "%hhx"
+#define __PRIX8 "%hhX"
+#define __PRIXLEAST8 "%hhX"
+#define __SCNd8 "%hhd"
+#define __SCNdLEAST8 "%hhd"
+#define __SCNi8 "%hhi"
+#define __SCNiLEAST8 "%hhi"
+#define __SCNo8 "%hho"
+#define __SCNoLEAST8 "%hho"
+#define __SCNu8 "%hhu"
+#define __SCNuLEAST8 "%hhu"
+#define __SCNx8 "%hhx"
+#define __SCNxLEAST8 "%hhx"
+
+
+typedef short int16_t;
+typedef unsigned short uint16_t;
+#define INT16_C(value) ((short)(value))
+#define UINT16_C(value) ((unsigned short)(value))
+typedef short int_least16_t;
+typedef unsigned short uint_least16_t;
+#define INT16_MIN (-0x8000)
+#define INT16_MAX 0x7fff
+#define UINT16_MAX 0xffffU
+#define INT_LEAST16_MIN (-0x8000)
+#define INT_LEAST16_MAX 0x7fff
+#define UINT_LEAST16_MAX 0xffffU
+
+typedef int int_fast16_t;
+typedef unsigned int uint_fast16_t;
+
+#define INT_FAST16_MIN (-0x80000000)
+#define INT_FAST16_MAX 0x7fffffff
+#define UINT_FAST16_MAX 0xffffffffU
+
+#define __PRIdFAST16 "%d"
+#define __PRIiFAST16 "%i"
+#define __PRIoFAST16 "%o"
+#define __PRIuFAST16 "%o"
+#define __PRIxFAST16 "%x"
+#define __PRIXFAST16 "%X"
+#define __SCNdFAST16 "%d"
+#define __SCNiFAST16 "%i"
+#define __SCNoFAST16 "%o"
+#define __SCNuFAST16 "%u"
+#define __SCNxFAST16 "%x"
+
+
+#define __PRId16 "%hd"
+#define __PRIdLEAST16 "%hd"
+#define __PRIi16 "%hi"
+#define __PRIiLEAST16 "%hi"
+#define __PRIo16 "%ho"
+#define __PRIoLEAST16 "%ho"
+#define __PRIu16 "%hu"
+#define __PRIuLEAST16 "%hu"
+#define __PRIx16 "%hx"
+#define __PRIxLEAST16 "%hx"
+#define __PRIX16 "%hX"
+#define __PRIXLEAST16 "%hX"
+#define __SCNd16 "%hd"
+#define __SCNdLEAST16 "%hd"
+#define __SCNi16 "%hi"
+#define __SCNiLEAST16 "%hi"
+#define __SCNo16 "%ho"
+#define __SCNoLEAST16 "%ho"
+#define __SCNu16 "%hu"
+#define __SCNuLEAST16 "%hu"
+#define __SCNx16 "%hx"
+#define __SCNxLEAST16 "%hx"
+
+typedef int int32_t;
+typedef unsigned int uint32_t;
+#define INT32_C(value) ((int)(value))
+#define UINT32_C(value) ((unsigned int)(value))
+typedef int int_least32_t;
+typedef unsigned int uint_least32_t;
+typedef int int_fast32_t;
+typedef unsigned int uint_fast32_t;
+#define INT32_MIN (-0x80000000)
+#define INT32_MAX 0x7fffffff
+#define UINT32_MAX 0xffffffffU
+#define INT_LEAST32_MIN (-0x80000000)
+#define INT_LEAST32_MAX 0x7fffffff
+#define UINT_LEAST32_MAX 0xffffffffU
+#define INT_FAST32_MIN (-0x80000000)
+#define INT_FAST32_MAX 0x7fffffff
+#define UINT_FAST32_MAX 0xffffffffU
+#define __PRId32 "%d"
+#define __PRIdLEAST32 "%d"
+#define __PRIdFAST32 "%d"
+#define __PRIi32 "%i"
+#define __PRIiLEAST32 "%i"
+#define __PRIiFAST32 "%i"
+#define __PRIo32 "%o"
+#define __PRIoLEAST32 "%o"
+#define __PRIoFAST32 "%o"
+#define __PRIu32 "%u"
+#define __PRIuLEAST32 "%u"
+#define __PRIuFAST32 "%u"
+#define __PRIx32 "%x"
+#define __PRIxLEAST32 "%x"
+#define __PRIxFAST32 "%x"
+#define __PRIX32 "%X"
+#define __PRIXLEAST32 "%X"
+#define __PRIXFAST32 "%X"
+#define __SCNd32 "%d"
+#define __SCNdLEAST32 "%d"
+#define __SCNdFAST32 "%d"
+#define __SCNi32 "%i"
+#define __SCNiLEAST32 "%i"
+#define __SCNiFAST32 "%i"
+#define __SCNo32 "%o"
+#define __SCNoLEAST32 "%o"
+#define __SCNoFAST32 "%o"
+#define __SCNu32 "%u"
+#define __SCNuLEAST32 "%u"
+#define __SCNuFAST32 "%u"
+#define __SCNx32 "%x"
+#define __SCNxLEAST32 "%x"
+#define __SCNxFAST32 "%x"
+
+
+typedef long long int64_t;
+typedef unsigned long long uint64_t;
+#define INT64_C(value) ((long long)(value))
+#define UINT64_C(value) ((unsigned long long)(value))
+typedef long long int_least64_t;
+typedef unsigned long long uint_least64_t;
+typedef long long int_fast64_t;
+typedef unsigned long long uint_fast64_t;
+#define INT64_MIN (-0x8000000000000000LL)
+#define INT64_MAX 0x7fffffffffffffffLL
+#define UINT64_MAX 0xffffffffffffffffULL
+#define INT_LEAST64_MIN (-0x8000000000000000LL)
+#define INT_LEAST64_MAX 0x7fffffffffffffffLL
+#define UINT_LEAST64_MAX 0xffffffffffffffffULL
+#define INT_FAST64_MIN (-0x8000000000000000LL)
+#define INT_FAST64_MAX 0x7fffffffffffffffLL
+#define UINT_FAST64_MAX 0xffffffffffffffffULL
+#define __PRId64 "%lld"
+#define __PRIdLEAST64 "%lld"
+#define __PRIdFAST64 "%lld"
+#define __PRIi64 "%lli"
+#define __PRIiLEAST64 "%lli"
+#define __PRIiFAST64 "%lli"
+#define __PRIo64 "%llo"
+#define __PRIoLEAST64 "%llo"
+#define __PRIoFAST64 "%llo"
+#define __PRIu64 "%llu"
+#define __PRIuLEAST64 "%llu"
+#define __PRIuFAST64 "%llu"
+#define __PRIx64 "%llx"
+#define __PRIxLEAST64 "%llx"
+#define __PRIxFAST64 "%llx"
+#define __PRIX64 "%llX"
+#define __PRIXLEAST64 "%llX"
+#define __PRIXFAST64 "%llX"
+#define __SCNd64 "%lld"
+#define __SCNdLEAST64 "%lld"
+#define __SCNdFAST64 "%lld"
+#define __SCNi64 "%lli"
+#define __SCNiLEAST64 "%lli"
+#define __SCNiFAST64 "%lli"
+#define __SCNo64 "%llo"
+#define __SCNoLEAST64 "%llo"
+#define __SCNoFAST64 "%llo"
+#define __SCNu64 "%llu"
+#define __SCNuLEAST64 "%llu"
+#define __SCNuFAST64 "%llu"
+#define __SCNx64 "%llx"
+#define __SCNxLEAST64 "%llx"
+#define __SCNxFAST64 "%llx"
+
+
+
+
+
+
+typedef int intptr_t;
+typedef unsigned int uintptr_t;
+
+#define INTPTR_MIN (-0x80000000)
+#define INTPTR_MAX 0x7fffffff
+#define UINTPTR_MAX 0xffffffffU
+
+#define __PRIdPTR "%d"
+#define __PRIiPTR "%i"
+#define __PRIoPTR "%o"
+#define __PRIuPTR "%u"
+#define __PRIxPTR "%x"
+#define __PRIXPTR "%X"
+#define __SCNdPTR "%d"
+#define __SCNiPTR "%i"
+#define __SCNoPTR "%o"
+#define __SCNuPTR "%u"
+#define __SCNxPTR "%x"
+
+
+
+
+
+
+typedef long long intmax_t;
+typedef unsigned long long uintmax_t;
+#define __SIZEOF_INTMAX __SIZEOF_LONG_LONG
+
+#define INTMAX_MIN (-0x8000000000000000LL)
+#define INTMAX_MAX 0x7fffffffffffffffLL
+#define UINTMAX_MAX 0xffffffffffffffffULL
+
+#define INTMAX_C(value) ((long long)(value))
+#define UINTMAX_C(value) ((unsigned long long)(value))
+#define __PRIdMAX "%lld"
+#define __PRIiMAX "%lli"
+#define __PRIoMAX "%llo"
+#define __PRIuMAX "%llu"
+#define __PRIxMAX "%llx"
+#define __PRIXMAX "%llX"
+#define __SCNdMAX "%lld"
+#define __SCNiMAX "%lli"
+#define __SCNoMAX "%llo"
+#define __SCNuMAX "%llu"
+#define __SCNxMAX "%llx"
+
+#define __SIZEOF_PTRDIFF 4
+#define PTRDIFF_MIN (-0x80000000)
+#define PTRDIFF_MAX 0x7fffffff
+
+#define __SIZEOF_SIZE 4
+#define SIZE_MAX 0xffffffffU
+
+
+#define WCHAR_MIN __WCHAR_MIN__
+#define WCHAR_MAX __WCHAR_MAX__
+
+#define WINT_MIN INT32_MIN
+#define WINT_MAX INT32_MAX
+
+#define SIG_ATOMIC_MIN 0
+#define SIG_ATOMIC_MAX 0xff
+# 92 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h" 2
+
+
+
+
+
+
+# 1 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOSConfig.h" 1
+# 55 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOSConfig.h"
+#define FREERTOS_CONFIG_H 
+
+
+extern uint32_t SystemCoreClock;
+
+
+#define configUART_COMMAND_CONSOLE_TASK_PRIORITY ( 3U )
+#define configSPI_7_SEG_WRITE_TASK_PRIORITY ( 2U )
+#define configI2C_TASK_PRIORITY ( 0U )
+
+
+#define configUART_COMMAND_CONSOLE_STACK_SIZE ( configMINIMAL_STACK_SIZE * 2 )
+#define configSPI_7_SEG_WRITE_TASK_STACK_SIZE ( configMINIMAL_STACK_SIZE * 2 )
+#define configI2C_TASK_STACK_SIZE ( configMINIMAL_STACK_SIZE * 3 )
+
+
+
+
+
+#define configCOMMAND_INT_MAX_OUTPUT_SIZE 1024
+# 88 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOSConfig.h"
+#define configUSE_PREEMPTION 1
+
+#define configMAX_PRIORITIES ( 7 )
+
+#define configCPU_CLOCK_HZ ( SystemCoreClock )
+#define configTICK_RATE_HZ ( ( portTickType ) 1000 )
+#define configMINIMAL_STACK_SIZE ( ( unsigned short ) 90 )
+#define configTOTAL_HEAP_SIZE ( ( size_t ) ( 15 * 1024 ) )
+#define configMAX_TASK_NAME_LEN ( 12 )
+#define configIDLE_SHOULD_YIELD 0
+#define configQUEUE_REGISTRY_SIZE 10
+#define configUSE_TRACE_FACILITY 1
+#define configUSE_16_BIT_TICKS 0
+#define configUSE_MUTEXES 1
+#define configUSE_CO_ROUTINES 0
+#define configMAX_CO_ROUTINE_PRIORITIES ( 2 )
+#define configUSE_COUNTING_SEMAPHORES 1
+#define configUSE_ALTERNATIVE_API 0
+#define configUSE_RECURSIVE_MUTEXES 1
+
+
+#define configUSE_TICK_HOOK 0
+
+#define configUSE_IDLE_HOOK 1
+#define configUSE_MALLOC_FAILED_HOOK 1
+#define configCHECK_FOR_STACK_OVERFLOW 2
+
+
+
+#define configUSE_TIMERS 1
+#define configTIMER_TASK_PRIORITY ( configMAX_PRIORITIES - 3 )
+#define configTIMER_QUEUE_LENGTH 10
+#define configTIMER_TASK_STACK_DEPTH configMINIMAL_STACK_SIZE
+
+
+void vMainConfigureTimerForRunTimeStats( void );
+uint32_t ulMainGetRunTimeCounterValue( void );
+#define configGENERATE_RUN_TIME_STATS 1
+#define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS() vMainConfigureTimerForRunTimeStats()
+#define portGET_RUN_TIME_COUNTER_VALUE() ulMainGetRunTimeCounterValue()
+
+
+
+
+#define INCLUDE_vTaskPrioritySet 1
+#define INCLUDE_uxTaskPriorityGet 1
+#define INCLUDE_vTaskDelete 1
+#define INCLUDE_vTaskCleanUpResources 0
+#define INCLUDE_vTaskSuspend 1
+#define INCLUDE_vTaskDelayUntil 1
+#define INCLUDE_vTaskDelay 1
+#define INCLUDE_uxTaskGetStackHighWaterMark 1
+#define INCLUDE_xTimerGetTimerTaskHandle 0
+#define INCLUDE_xTaskGetIdleTaskHandle 0
+#define INCLUDE_xQueueGetMutexHolder 1
+
+
+#define configASSERT(x) if( ( x ) == 0 ) { taskDISABLE_INTERRUPTS(); for( ;; ); }
+
+
+
+
+
+
+
+#define configPRIO_BITS 5
+
+
+
+
+#define configMAX_LIBRARY_INTERRUPT_PRIORITY ( 5 )
+
+
+#define configMIN_LIBRARY_INTERRUPT_PRIORITY ( 31 )
+
+
+#define configKERNEL_INTERRUPT_PRIORITY ( configMIN_LIBRARY_INTERRUPT_PRIORITY << (8 - configPRIO_BITS) )
+
+
+#define configMAX_SYSCALL_INTERRUPT_PRIORITY ( configMAX_LIBRARY_INTERRUPT_PRIORITY << (8 - configPRIO_BITS) )
+# 180 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOSConfig.h"
+#define vPortSVCHandler SVC_Handler
+#define xPortPendSVHandler PendSV_Handler
+#define xPortSysTickHandler SysTick_Handler
+# 99 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h" 2
+
+
+# 1 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/projdefs.h" 1
+# 71 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/projdefs.h"
+#define PROJDEFS_H 
+
+
+
+
+
+typedef void (*TaskFunction_t)( void * );
+
+
+#define pdMS_TO_TICKS(xTimeInMs) ( ( TickType_t ) ( ( ( TickType_t ) ( xTimeInMs ) * ( TickType_t ) configTICK_RATE_HZ ) / ( TickType_t ) 1000 ) )
+
+#define pdFALSE ( ( BaseType_t ) 0 )
+#define pdTRUE ( ( BaseType_t ) 1 )
+
+#define pdPASS ( pdTRUE )
+#define pdFAIL ( pdFALSE )
+#define errQUEUE_EMPTY ( ( BaseType_t ) 0 )
+#define errQUEUE_FULL ( ( BaseType_t ) 0 )
+
+
+#define errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY ( -1 )
+#define errQUEUE_BLOCKED ( -4 )
+#define errQUEUE_YIELD ( -5 )
+
+
+
+#define configUSE_LIST_DATA_INTEGRITY_CHECK_BYTES 0
+
+
+
+
+
+#define pdINTEGRITY_CHECK_VALUE 0x5a5a5a5aUL
+
+
+
+
+#define pdFREERTOS_ERRNO_NONE 0
+#define pdFREERTOS_ERRNO_ENOENT 2
+#define pdFREERTOS_ERRNO_EIO 5
+#define pdFREERTOS_ERRNO_ENXIO 6
+#define pdFREERTOS_ERRNO_EBADF 9
+#define pdFREERTOS_ERRNO_EAGAIN 11
+#define pdFREERTOS_ERRNO_EWOULDBLOCK 11
+#define pdFREERTOS_ERRNO_ENOMEM 12
+#define pdFREERTOS_ERRNO_EACCES 13
+#define pdFREERTOS_ERRNO_EFAULT 14
+#define pdFREERTOS_ERRNO_EBUSY 16
+#define pdFREERTOS_ERRNO_EEXIST 17
+#define pdFREERTOS_ERRNO_EXDEV 18
+#define pdFREERTOS_ERRNO_ENODEV 19
+#define pdFREERTOS_ERRNO_ENOTDIR 20
+#define pdFREERTOS_ERRNO_EISDIR 21
+#define pdFREERTOS_ERRNO_EINVAL 22
+#define pdFREERTOS_ERRNO_ENOSPC 28
+#define pdFREERTOS_ERRNO_ESPIPE 29
+#define pdFREERTOS_ERRNO_EROFS 30
+#define pdFREERTOS_ERRNO_EUNATCH 42
+#define pdFREERTOS_ERRNO_EBADE 50
+#define pdFREERTOS_ERRNO_EFTYPE 79
+#define pdFREERTOS_ERRNO_ENMFILE 89
+#define pdFREERTOS_ERRNO_ENOTEMPTY 90
+#define pdFREERTOS_ERRNO_ENAMETOOLONG 91
+#define pdFREERTOS_ERRNO_EOPNOTSUPP 95
+#define pdFREERTOS_ERRNO_ENOBUFS 105
+#define pdFREERTOS_ERRNO_ENOPROTOOPT 109
+#define pdFREERTOS_ERRNO_EADDRINUSE 112
+#define pdFREERTOS_ERRNO_ETIMEDOUT 116
+#define pdFREERTOS_ERRNO_EINPROGRESS 119
+#define pdFREERTOS_ERRNO_EALREADY 120
+#define pdFREERTOS_ERRNO_EADDRNOTAVAIL 125
+#define pdFREERTOS_ERRNO_EISCONN 127
+#define pdFREERTOS_ERRNO_ENOTCONN 128
+#define pdFREERTOS_ERRNO_ENOMEDIUM 135
+#define pdFREERTOS_ERRNO_EILSEQ 138
+#define pdFREERTOS_ERRNO_ECANCELED 140
+
+
+
+#define pdFREERTOS_LITTLE_ENDIAN 0
+#define pdFREERTOS_BIG_ENDIAN 1
+# 102 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h" 2
+
+
+# 1 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/portable.h" 1
+# 75 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/portable.h"
+#define PORTABLE_H 
+# 87 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/portable.h"
+# 1 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/deprecated_definitions.h" 1
+# 71 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/deprecated_definitions.h"
+#define DEPRECATED_DEFINITIONS_H 
+# 88 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/portable.h" 2
+
+
+
+
+
+
+
+# 1 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3_MPU/portmacro.h" 1
+# 68 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3_MPU/portmacro.h"
+#define PORTMACRO_H 
+# 87 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3_MPU/portmacro.h"
+#define portCHAR char
+#define portFLOAT float
+#define portDOUBLE double
+#define portLONG long
+#define portSHORT short
+#define portSTACK_TYPE uint32_t
+#define portBASE_TYPE long
+
+typedef uint32_t StackType_t;
+typedef long BaseType_t;
+typedef unsigned long UBaseType_t;
+
+
+
+
+
+ typedef uint32_t TickType_t;
+#define portMAX_DELAY ( TickType_t ) 0xffffffffUL
+
+
+
+
+#define portUSING_MPU_WRAPPERS 1
+#define portPRIVILEGE_BIT ( 0x80000000UL )
+
+#define portMPU_REGION_READ_WRITE ( 0x03UL << 24UL )
+#define portMPU_REGION_PRIVILEGED_READ_ONLY ( 0x05UL << 24UL )
+#define portMPU_REGION_READ_ONLY ( 0x06UL << 24UL )
+#define portMPU_REGION_PRIVILEGED_READ_WRITE ( 0x01UL << 24UL )
+#define portMPU_REGION_CACHEABLE_BUFFERABLE ( 0x07UL << 16UL )
+#define portMPU_REGION_EXECUTE_NEVER ( 0x01UL << 28UL )
+
+#define portUNPRIVILEGED_FLASH_REGION ( 0UL )
+#define portPRIVILEGED_FLASH_REGION ( 1UL )
+#define portPRIVILEGED_RAM_REGION ( 3UL )
+#define portSRAM_REGION ( 2UL )
+#define portGENERAL_PERIPHERALS_REGION ( 3UL )
+#define portSTACK_REGION ( 4UL )
+#define portFIRST_CONFIGURABLE_REGION ( 5UL )
+#define portLAST_CONFIGURABLE_REGION ( 7UL )
+#define portNUM_CONFIGURABLE_REGIONS ( ( portLAST_CONFIGURABLE_REGION - portFIRST_CONFIGURABLE_REGION ) + 1 )
+#define portTOTAL_NUM_REGIONS ( portNUM_CONFIGURABLE_REGIONS + 1 )
+
+#define portSWITCH_TO_USER_MODE() __asm volatile ( " mrs r0, control \n orr r0, #1 \n msr control, r0 " :::"r0" )
+
+typedef struct MPU_REGION_REGISTERS
+{
+ uint32_t ulRegionBaseAddress;
+ uint32_t ulRegionAttribute;
+} xMPU_REGION_REGISTERS;
+
+
+typedef struct MPU_SETTINGS
+{
+ xMPU_REGION_REGISTERS xRegion[ ( ( ( ( 7UL ) - ( 5UL ) ) + 1 ) + 1 ) ];
+} xMPU_SETTINGS;
+
+
+#define portSTACK_GROWTH ( -1 )
+#define portTICK_PERIOD_MS ( ( TickType_t ) 1000 / configTICK_RATE_HZ )
+#define portBYTE_ALIGNMENT 8
+
+
+
+#define portSVC_START_SCHEDULER 0
+#define portSVC_YIELD 1
+#define portSVC_RAISE_PRIVILEGE 2
+
+
+
+#define portYIELD() __asm volatile ( "	SVC	%0	\n" :: "i" (portSVC_YIELD) )
+#define portYIELD_WITHIN_API() *(portNVIC_INT_CTRL) = portNVIC_PENDSVSET
+
+#define portNVIC_INT_CTRL ( ( volatile uint32_t *) 0xe000ed04 )
+#define portNVIC_PENDSVSET 0x10000000
+#define portEND_SWITCHING_ISR(xSwitchRequired) if( xSwitchRequired ) *(portNVIC_INT_CTRL) = portNVIC_PENDSVSET
+#define portYIELD_FROM_ISR(x) portEND_SWITCHING_ISR( x )
+# 173 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3_MPU/portmacro.h"
+#define portSET_INTERRUPT_MASK() __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(configMAX_SYSCALL_INTERRUPT_PRIORITY):"r0" )
+# 186 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3_MPU/portmacro.h"
+#define portCLEAR_INTERRUPT_MASK() __asm volatile ( "	mov r0, #0					\n" "	msr basepri, r0				\n" :::"r0" )
+# 196 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/portable/GCC/ARM_CM3_MPU/portmacro.h"
+#define portSET_INTERRUPT_MASK_FROM_ISR() 0;portSET_INTERRUPT_MASK()
+#define portCLEAR_INTERRUPT_MASK_FROM_ISR(x) portCLEAR_INTERRUPT_MASK();(void)x
+
+
+extern void vPortEnterCritical( void );
+extern void vPortExitCritical( void );
+
+#define portDISABLE_INTERRUPTS() portSET_INTERRUPT_MASK()
+#define portENABLE_INTERRUPTS() portCLEAR_INTERRUPT_MASK()
+#define portENTER_CRITICAL() vPortEnterCritical()
+#define portEXIT_CRITICAL() vPortExitCritical()
+
+
+
+#define portTASK_FUNCTION_PROTO(vFunction,pvParameters) void vFunction( void *pvParameters )
+#define portTASK_FUNCTION(vFunction,pvParameters) void vFunction( void *pvParameters )
+
+#define portNOP() 
+# 96 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/portable.h" 2
+# 107 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/portable.h"
+#define portBYTE_ALIGNMENT_MASK ( 0x0007 )
+# 134 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/portable.h"
+# 1 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/mpu_wrappers.h" 1
+# 71 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/mpu_wrappers.h"
+#define MPU_WRAPPERS_H 
+# 162 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/mpu_wrappers.h"
+#define PRIVILEGED_FUNCTION __attribute__((section("privileged_functions")))
+#define PRIVILEGED_DATA __attribute__((section("privileged_data")))
+# 135 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/portable.h" 2
+# 143 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/portable.h"
+ StackType_t *pxPortInitialiseStack( StackType_t *pxTopOfStack, TaskFunction_t pxCode, void *pvParameters, BaseType_t xRunPrivileged ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+typedef struct HeapRegion
+{
+ uint8_t *pucStartAddress;
+ size_t xSizeInBytes;
+} HeapRegion_t;
+# 166 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/portable.h"
+void vPortDefineHeapRegions( const HeapRegion_t * const pxHeapRegions ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+void *pvPortMalloc( size_t xSize ) __attribute__((section("privileged_functions")));
+void vPortFree( void *pv ) __attribute__((section("privileged_functions")));
+void vPortInitialiseBlocks( void ) __attribute__((section("privileged_functions")));
+size_t xPortGetFreeHeapSize( void ) __attribute__((section("privileged_functions")));
+size_t xPortGetMinimumEverFreeHeapSize( void ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+BaseType_t xPortStartScheduler( void ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+
+void vPortEndScheduler( void ) __attribute__((section("privileged_functions")));
+# 199 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/portable.h"
+ struct xMEMORY_REGION;
+ void vPortStoreTaskMPUSettings( xMPU_SETTINGS *xMPUSettings, const struct xMEMORY_REGION * const xRegions, StackType_t *pxBottomOfStack, uint16_t usStackDepth ) __attribute__((section("privileged_functions")));
+# 105 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h" 2
+# 179 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h"
+#define INCLUDE_xTimerGetTimerDaemonTaskHandle 0
+
+
+
+
+
+
+
+#define INCLUDE_xSemaphoreGetMutexHolder INCLUDE_xQueueGetMutexHolder
+
+
+
+#define INCLUDE_pcTaskGetTaskName 0
+
+
+
+#define configUSE_APPLICATION_TASK_TAG 0
+
+
+
+#define configNUM_THREAD_LOCAL_STORAGE_POINTERS 0
+
+
+
+
+
+
+
+#define INCLUDE_eTaskGetState 0
+# 231 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h"
+#define portCRITICAL_NESTING_IN_TCB 0
+# 247 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h"
+#define INCLUDE_xTaskResumeFromISR 1
+
+
+
+#define INCLUDE_xEventGroupSetBitFromISR 0
+
+
+
+#define INCLUDE_xTimerPendFunctionCall 0
+
+
+
+
+
+
+#define configASSERT_DEFINED 1
+# 283 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h"
+#define INCLUDE_xTaskGetSchedulerState 0
+
+
+
+#define INCLUDE_xTaskGetCurrentTaskHandle 0
+# 300 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h"
+#define portCLEAN_UP_TCB(pxTCB) ( void ) pxTCB
+
+
+
+#define portPRE_TASK_DELETE_HOOK(pvTaskToDelete,pxYieldPending) 
+
+
+
+#define portSETUP_TCB(pxTCB) ( void ) pxTCB
+# 321 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h"
+#define portPOINTER_SIZE_TYPE uint32_t
+
+
+
+
+
+
+#define traceSTART() 
+
+
+
+
+
+#define traceEND() 
+
+
+
+
+
+#define traceTASK_SWITCHED_IN() 
+
+
+
+
+
+#define traceINCREASE_TICK_COUNT(x) 
+
+
+
+
+#define traceLOW_POWER_IDLE_BEGIN() 
+
+
+
+
+#define traceLOW_POWER_IDLE_END() 
+
+
+
+
+
+#define traceTASK_SWITCHED_OUT() 
+# 371 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h"
+#define traceTASK_PRIORITY_INHERIT(pxTCBOfMutexHolder,uxInheritedPriority) 
+
+
+
+
+
+
+
+#define traceTASK_PRIORITY_DISINHERIT(pxTCBOfMutexHolder,uxOriginalPriority) 
+
+
+
+
+
+
+
+#define traceBLOCKING_ON_QUEUE_RECEIVE(pxQueue) 
+
+
+
+
+
+
+
+#define traceBLOCKING_ON_QUEUE_SEND(pxQueue) 
+# 405 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h"
+#define traceMOVED_TASK_TO_READY_STATE(pxTCB) 
+
+
+
+#define traceQUEUE_CREATE(pxNewQueue) 
+
+
+
+#define traceQUEUE_CREATE_FAILED(ucQueueType) 
+
+
+
+#define traceCREATE_MUTEX(pxNewQueue) 
+
+
+
+#define traceCREATE_MUTEX_FAILED() 
+
+
+
+#define traceGIVE_MUTEX_RECURSIVE(pxMutex) 
+
+
+
+#define traceGIVE_MUTEX_RECURSIVE_FAILED(pxMutex) 
+
+
+
+#define traceTAKE_MUTEX_RECURSIVE(pxMutex) 
+
+
+
+#define traceTAKE_MUTEX_RECURSIVE_FAILED(pxMutex) 
+
+
+
+#define traceCREATE_COUNTING_SEMAPHORE() 
+
+
+
+#define traceCREATE_COUNTING_SEMAPHORE_FAILED() 
+
+
+
+#define traceQUEUE_SEND(pxQueue) 
+
+
+
+#define traceQUEUE_SEND_FAILED(pxQueue) 
+
+
+
+#define traceQUEUE_RECEIVE(pxQueue) 
+
+
+
+#define traceQUEUE_PEEK(pxQueue) 
+
+
+
+#define traceQUEUE_PEEK_FROM_ISR(pxQueue) 
+
+
+
+#define traceQUEUE_RECEIVE_FAILED(pxQueue) 
+
+
+
+#define traceQUEUE_SEND_FROM_ISR(pxQueue) 
+
+
+
+#define traceQUEUE_SEND_FROM_ISR_FAILED(pxQueue) 
+
+
+
+#define traceQUEUE_RECEIVE_FROM_ISR(pxQueue) 
+
+
+
+#define traceQUEUE_RECEIVE_FROM_ISR_FAILED(pxQueue) 
+
+
+
+#define traceQUEUE_PEEK_FROM_ISR_FAILED(pxQueue) 
+
+
+
+#define traceQUEUE_DELETE(pxQueue) 
+
+
+
+#define traceTASK_CREATE(pxNewTCB) 
+
+
+
+#define traceTASK_CREATE_FAILED() 
+
+
+
+#define traceTASK_DELETE(pxTaskToDelete) 
+
+
+
+#define traceTASK_DELAY_UNTIL() 
+
+
+
+#define traceTASK_DELAY() 
+
+
+
+#define traceTASK_PRIORITY_SET(pxTask,uxNewPriority) 
+
+
+
+#define traceTASK_SUSPEND(pxTaskToSuspend) 
+
+
+
+#define traceTASK_RESUME(pxTaskToResume) 
+
+
+
+#define traceTASK_RESUME_FROM_ISR(pxTaskToResume) 
+
+
+
+#define traceTASK_INCREMENT_TICK(xTickCount) 
+
+
+
+#define traceTIMER_CREATE(pxNewTimer) 
+
+
+
+#define traceTIMER_CREATE_FAILED() 
+
+
+
+#define traceTIMER_COMMAND_SEND(xTimer,xMessageID,xMessageValueValue,xReturn) 
+
+
+
+#define traceTIMER_EXPIRED(pxTimer) 
+
+
+
+#define traceTIMER_COMMAND_RECEIVED(pxTimer,xMessageID,xMessageValue) 
+
+
+
+#define traceMALLOC(pvAddress,uiSize) 
+
+
+
+#define traceFREE(pvAddress,uiSize) 
+
+
+
+#define traceEVENT_GROUP_CREATE(xEventGroup) 
+
+
+
+#define traceEVENT_GROUP_CREATE_FAILED() 
+
+
+
+#define traceEVENT_GROUP_SYNC_BLOCK(xEventGroup,uxBitsToSet,uxBitsToWaitFor) 
+
+
+
+#define traceEVENT_GROUP_SYNC_END(xEventGroup,uxBitsToSet,uxBitsToWaitFor,xTimeoutOccurred) ( void ) xTimeoutOccurred
+
+
+
+#define traceEVENT_GROUP_WAIT_BITS_BLOCK(xEventGroup,uxBitsToWaitFor) 
+
+
+
+#define traceEVENT_GROUP_WAIT_BITS_END(xEventGroup,uxBitsToWaitFor,xTimeoutOccurred) ( void ) xTimeoutOccurred
+
+
+
+#define traceEVENT_GROUP_CLEAR_BITS(xEventGroup,uxBitsToClear) 
+
+
+
+#define traceEVENT_GROUP_CLEAR_BITS_FROM_ISR(xEventGroup,uxBitsToClear) 
+
+
+
+#define traceEVENT_GROUP_SET_BITS(xEventGroup,uxBitsToSet) 
+
+
+
+#define traceEVENT_GROUP_SET_BITS_FROM_ISR(xEventGroup,uxBitsToSet) 
+
+
+
+#define traceEVENT_GROUP_DELETE(xEventGroup) 
+
+
+
+#define tracePEND_FUNC_CALL(xFunctionToPend,pvParameter1,ulParameter2,ret) 
+
+
+
+#define tracePEND_FUNC_CALL_FROM_ISR(xFunctionToPend,pvParameter1,ulParameter2,ret) 
+
+
+
+#define traceQUEUE_REGISTRY_ADD(xQueue,pcQueueName) 
+
+
+
+#define traceTASK_NOTIFY_TAKE_BLOCK() 
+
+
+
+#define traceTASK_NOTIFY_TAKE() 
+
+
+
+#define traceTASK_NOTIFY_WAIT_BLOCK() 
+
+
+
+#define traceTASK_NOTIFY_WAIT() 
+
+
+
+#define traceTASK_NOTIFY() 
+
+
+
+#define traceTASK_NOTIFY_FROM_ISR() 
+
+
+
+#define traceTASK_NOTIFY_GIVE_FROM_ISR() 
+# 683 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h"
+#define pvPortMallocAligned(x,puxStackBuffer) ( ( ( puxStackBuffer ) == NULL ) ? ( pvPortMalloc( ( x ) ) ) : ( puxStackBuffer ) )
+
+
+
+#define vPortFreeAligned(pvBlockToFree) vPortFree( pvBlockToFree )
+
+
+
+#define portSUPPRESS_TICKS_AND_SLEEP(xExpectedIdleTime) 
+
+
+
+#define configEXPECTED_IDLE_TIME_BEFORE_SLEEP 2
+
+
+
+
+
+
+
+#define configUSE_TICKLESS_IDLE 0
+
+
+
+#define configPRE_SLEEP_PROCESSING(x) 
+
+
+
+#define configPOST_SLEEP_PROCESSING(x) 
+
+
+
+#define configUSE_QUEUE_SETS 0
+
+
+
+#define portTASK_USES_FLOATING_POINT() 
+
+
+
+#define configUSE_TIME_SLICING 1
+
+
+
+#define configINCLUDE_APPLICATION_DEFINED_PRIVILEGED_FUNCTIONS 0
+
+
+
+#define configUSE_NEWLIB_REENTRANT 0
+
+
+
+#define configUSE_STATS_FORMATTING_FUNCTIONS 0
+
+
+
+#define portASSERT_IF_INTERRUPT_PRIORITY_INVALID() 
+
+
+
+
+
+
+
+#define mtCOVERAGE_TEST_MARKER() 
+
+
+
+#define mtCOVERAGE_TEST_DELAY() 
+
+
+
+#define portASSERT_IF_IN_ISR() 
+
+
+
+#define configUSE_PORT_OPTIMISED_TASK_SELECTION 0
+
+
+
+#define configAPPLICATION_ALLOCATED_HEAP 0
+
+
+
+#define configUSE_TASK_NOTIFICATIONS 1
+
+
+
+#define portTICK_TYPE_IS_ATOMIC 0
+
+
+
+
+
+
+#define portTICK_TYPE_ENTER_CRITICAL() portENTER_CRITICAL()
+#define portTICK_TYPE_EXIT_CRITICAL() portEXIT_CRITICAL()
+#define portTICK_TYPE_SET_INTERRUPT_MASK_FROM_ISR() portSET_INTERRUPT_MASK_FROM_ISR()
+#define portTICK_TYPE_CLEAR_INTERRUPT_MASK_FROM_ISR(x) portCLEAR_INTERRUPT_MASK_FROM_ISR( ( x ) )
+# 794 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/FreeRTOS.h"
+#define configENABLE_BACKWARD_COMPATIBILITY 1
+
+
+
+#define eTaskStateGet eTaskGetState
+#define portTickType TickType_t
+#define xTaskHandle TaskHandle_t
+#define xQueueHandle QueueHandle_t
+#define xSemaphoreHandle SemaphoreHandle_t
+#define xQueueSetHandle QueueSetHandle_t
+#define xQueueSetMemberHandle QueueSetMemberHandle_t
+#define xTimeOutType TimeOut_t
+#define xMemoryRegion MemoryRegion_t
+#define xTaskParameters TaskParameters_t
+#define xTaskStatusType TaskStatus_t
+#define xTimerHandle TimerHandle_t
+#define xCoRoutineHandle CoRoutineHandle_t
+#define pdTASK_HOOK_CODE TaskHookFunction_t
+#define portTICK_RATE_MS portTICK_PERIOD_MS
+
+
+
+#define tmrTIMER_CALLBACK TimerCallbackFunction_t
+#define pdTASK_CODE TaskFunction_t
+#define xListItem ListItem_t
+#define xList List_t
+
+
+
+
+
+
+
+#define configUSE_TASK_FPU_SUPPORT 1
+# 85 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c" 2
+# 1 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h" 1
+# 72 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+#define INC_TASK_H 
+
+
+
+
+
+
+# 1 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h" 1
+# 103 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+#define LIST_H 
+# 134 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+#define configLIST_VOLATILE 
+# 148 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+#define listFIRST_LIST_ITEM_INTEGRITY_CHECK_VALUE 
+#define listSECOND_LIST_ITEM_INTEGRITY_CHECK_VALUE 
+#define listFIRST_LIST_INTEGRITY_CHECK_VALUE 
+#define listSECOND_LIST_INTEGRITY_CHECK_VALUE 
+#define listSET_FIRST_LIST_ITEM_INTEGRITY_CHECK_VALUE(pxItem) 
+#define listSET_SECOND_LIST_ITEM_INTEGRITY_CHECK_VALUE(pxItem) 
+#define listSET_LIST_INTEGRITY_CHECK_1_VALUE(pxList) 
+#define listSET_LIST_INTEGRITY_CHECK_2_VALUE(pxList) 
+#define listTEST_LIST_ITEM_INTEGRITY(pxItem) 
+#define listTEST_LIST_INTEGRITY(pxList) 
+# 181 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+struct xLIST_ITEM
+{
+
+ TickType_t xItemValue;
+ struct xLIST_ITEM * pxNext;
+ struct xLIST_ITEM * pxPrevious;
+ void * pvOwner;
+ void * pvContainer;
+
+};
+typedef struct xLIST_ITEM ListItem_t;
+
+struct xMINI_LIST_ITEM
+{
+
+ TickType_t xItemValue;
+ struct xLIST_ITEM * pxNext;
+ struct xLIST_ITEM * pxPrevious;
+};
+typedef struct xMINI_LIST_ITEM MiniListItem_t;
+
+
+
+
+typedef struct xLIST
+{
+
+ UBaseType_t uxNumberOfItems;
+ ListItem_t * pxIndex;
+ MiniListItem_t xListEnd;
+
+} List_t;
+# 221 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+#define listSET_LIST_ITEM_OWNER(pxListItem,pxOwner) ( ( pxListItem )->pvOwner = ( void * ) ( pxOwner ) )
+# 230 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+#define listGET_LIST_ITEM_OWNER(pxListItem) ( ( pxListItem )->pvOwner )
+# 239 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+#define listSET_LIST_ITEM_VALUE(pxListItem,xValue) ( ( pxListItem )->xItemValue = ( xValue ) )
+# 249 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+#define listGET_LIST_ITEM_VALUE(pxListItem) ( ( pxListItem )->xItemValue )
+# 258 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+#define listGET_ITEM_VALUE_OF_HEAD_ENTRY(pxList) ( ( ( pxList )->xListEnd ).pxNext->xItemValue )
+
+
+
+
+
+
+
+#define listGET_HEAD_ENTRY(pxList) ( ( ( pxList )->xListEnd ).pxNext )
+
+
+
+
+
+
+
+#define listGET_NEXT(pxListItem) ( ( pxListItem )->pxNext )
+
+
+
+
+
+
+
+#define listGET_END_MARKER(pxList) ( ( ListItem_t const * ) ( &( ( pxList )->xListEnd ) ) )
+# 291 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+#define listLIST_IS_EMPTY(pxList) ( ( BaseType_t ) ( ( pxList )->uxNumberOfItems == ( UBaseType_t ) 0 ) )
+
+
+
+
+#define listCURRENT_LIST_LENGTH(pxList) ( ( pxList )->uxNumberOfItems )
+# 318 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+#define listGET_OWNER_OF_NEXT_ENTRY(pxTCB,pxList) { List_t * const pxConstList = ( pxList ); ( pxConstList )->pxIndex = ( pxConstList )->pxIndex->pxNext; if( ( void * ) ( pxConstList )->pxIndex == ( void * ) &( ( pxConstList )->xListEnd ) ) { ( pxConstList )->pxIndex = ( pxConstList )->pxIndex->pxNext; } ( pxTCB ) = ( pxConstList )->pxIndex->pvOwner; }
+# 348 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+#define listGET_OWNER_OF_HEAD_ENTRY(pxList) ( (&( ( pxList )->xListEnd ))->pxNext->pvOwner )
+# 359 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+#define listIS_CONTAINED_WITHIN(pxList,pxListItem) ( ( BaseType_t ) ( ( pxListItem )->pvContainer == ( void * ) ( pxList ) ) )
+
+
+
+
+
+
+
+#define listLIST_ITEM_CONTAINER(pxListItem) ( ( pxListItem )->pvContainer )
+
+
+
+
+
+
+#define listLIST_IS_INITIALISED(pxList) ( ( pxList )->xListEnd.xItemValue == portMAX_DELAY )
+# 386 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+void vListInitialise( List_t * const pxList ) __attribute__((section("privileged_functions")));
+# 397 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+void vListInitialiseItem( ListItem_t * const pxItem ) __attribute__((section("privileged_functions")));
+# 410 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+void vListInsert( List_t * const pxList, ListItem_t * const pxNewListItem ) __attribute__((section("privileged_functions")));
+# 431 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+void vListInsertEnd( List_t * const pxList, ListItem_t * const pxNewListItem ) __attribute__((section("privileged_functions")));
+# 446 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/list.h"
+UBaseType_t uxListRemove( ListItem_t * const pxItemToRemove ) __attribute__((section("privileged_functions")));
+# 80 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h" 2
+# 89 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+#define tskKERNEL_VERSION_NUMBER "V8.2.3"
+#define tskKERNEL_VERSION_MAJOR 8
+#define tskKERNEL_VERSION_MINOR 2
+#define tskKERNEL_VERSION_BUILD 3
+# 104 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+typedef void * TaskHandle_t;
+
+
+
+
+
+typedef BaseType_t (*TaskHookFunction_t)( void * );
+
+
+typedef enum
+{
+ eRunning = 0,
+ eReady,
+ eBlocked,
+ eSuspended,
+ eDeleted
+} eTaskState;
+
+
+typedef enum
+{
+ eNoAction = 0,
+ eSetBits,
+ eIncrement,
+ eSetValueWithOverwrite,
+ eSetValueWithoutOverwrite
+} eNotifyAction;
+
+
+
+
+typedef struct xTIME_OUT
+{
+ BaseType_t xOverflowCount;
+ TickType_t xTimeOnEntering;
+} TimeOut_t;
+
+
+
+
+typedef struct xMEMORY_REGION
+{
+ void *pvBaseAddress;
+ uint32_t ulLengthInBytes;
+ uint32_t ulParameters;
+} MemoryRegion_t;
+
+
+
+
+typedef struct xTASK_PARAMETERS
+{
+ TaskFunction_t pvTaskCode;
+ const char * const pcName;
+ uint16_t usStackDepth;
+ void *pvParameters;
+ UBaseType_t uxPriority;
+ StackType_t *puxStackBuffer;
+ MemoryRegion_t xRegions[ ( ( ( 7UL ) - ( 5UL ) ) + 1 ) ];
+} TaskParameters_t;
+
+
+
+typedef struct xTASK_STATUS
+{
+ TaskHandle_t xHandle;
+ const char *pcTaskName;
+ UBaseType_t xTaskNumber;
+ eTaskState eCurrentState;
+ UBaseType_t uxCurrentPriority;
+ UBaseType_t uxBasePriority;
+ uint32_t ulRunTimeCounter;
+ uint16_t usStackHighWaterMark;
+} TaskStatus_t;
+
+
+typedef enum
+{
+ eAbortSleep = 0,
+ eStandardSleep,
+ eNoTasksWaitingTimeout
+} eSleepModeStatus;
+
+
+
+
+
+
+
+#define tskIDLE_PRIORITY ( ( UBaseType_t ) 0U )
+# 203 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+#define taskYIELD() portYIELD()
+# 217 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+#define taskENTER_CRITICAL() portENTER_CRITICAL()
+#define taskENTER_CRITICAL_FROM_ISR() portSET_INTERRUPT_MASK_FROM_ISR()
+# 232 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+#define taskEXIT_CRITICAL() portEXIT_CRITICAL()
+#define taskEXIT_CRITICAL_FROM_ISR(x) portCLEAR_INTERRUPT_MASK_FROM_ISR( x )
+# 242 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+#define taskDISABLE_INTERRUPTS() portDISABLE_INTERRUPTS()
+# 252 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+#define taskENABLE_INTERRUPTS() portENABLE_INTERRUPTS()
+
+
+
+
+#define taskSCHEDULER_SUSPENDED ( ( BaseType_t ) 0 )
+#define taskSCHEDULER_NOT_STARTED ( ( BaseType_t ) 1 )
+#define taskSCHEDULER_RUNNING ( ( BaseType_t ) 2 )
+# 346 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+#define xTaskCreate(pvTaskCode,pcName,usStackDepth,pvParameters,uxPriority,pxCreatedTask) xTaskGenericCreate( ( pvTaskCode ), ( pcName ), ( usStackDepth ), ( pvParameters ), ( uxPriority ), ( pxCreatedTask ), ( NULL ), ( NULL ) )
+# 415 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+#define xTaskCreateRestricted(x,pxCreatedTask) xTaskGenericCreate( ((x)->pvTaskCode), ((x)->pcName), ((x)->usStackDepth), ((x)->pvParameters), ((x)->uxPriority), (pxCreatedTask), ((x)->puxStackBuffer), ((x)->xRegions) )
+# 463 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+void vTaskAllocateMPURegions( TaskHandle_t xTask, const MemoryRegion_t * const pxRegions ) __attribute__((section("privileged_functions")));
+# 504 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+void vTaskDelete( TaskHandle_t xTaskToDelete ) __attribute__((section("privileged_functions")));
+# 556 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+void vTaskDelay( const TickType_t xTicksToDelay ) __attribute__((section("privileged_functions")));
+# 615 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+void vTaskDelayUntil( TickType_t * const pxPreviousWakeTime, const TickType_t xTimeIncrement ) __attribute__((section("privileged_functions")));
+# 662 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+UBaseType_t uxTaskPriorityGet( TaskHandle_t xTask ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+
+
+UBaseType_t uxTaskPriorityGetFromISR( TaskHandle_t xTask ) __attribute__((section("privileged_functions")));
+# 688 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+eTaskState eTaskGetState( TaskHandle_t xTask ) __attribute__((section("privileged_functions")));
+# 730 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+void vTaskPrioritySet( TaskHandle_t xTask, UBaseType_t uxNewPriority ) __attribute__((section("privileged_functions")));
+# 781 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+void vTaskSuspend( TaskHandle_t xTaskToSuspend ) __attribute__((section("privileged_functions")));
+# 830 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+void vTaskResume( TaskHandle_t xTaskToResume ) __attribute__((section("privileged_functions")));
+# 859 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+BaseType_t xTaskResumeFromISR( TaskHandle_t xTaskToResume ) __attribute__((section("privileged_functions")));
+# 892 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+void vTaskStartScheduler( void ) __attribute__((section("privileged_functions")));
+# 948 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+void vTaskEndScheduler( void ) __attribute__((section("privileged_functions")));
+# 999 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+void vTaskSuspendAll( void ) __attribute__((section("privileged_functions")));
+# 1053 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+BaseType_t xTaskResumeAll( void ) __attribute__((section("privileged_functions")));
+# 1068 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+TickType_t xTaskGetTickCount( void ) __attribute__((section("privileged_functions")));
+# 1084 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+TickType_t xTaskGetTickCountFromISR( void ) __attribute__((section("privileged_functions")));
+# 1098 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+UBaseType_t uxTaskGetNumberOfTasks( void ) __attribute__((section("privileged_functions")));
+# 1112 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+char *pcTaskGetTaskName( TaskHandle_t xTaskToQuery ) __attribute__((section("privileged_functions")));
+# 1133 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+UBaseType_t uxTaskGetStackHighWaterMark( TaskHandle_t xTask ) __attribute__((section("privileged_functions")));
+# 1186 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+BaseType_t xTaskCallApplicationTaskHook( TaskHandle_t xTask, void *pvParameter ) __attribute__((section("privileged_functions")));
+# 1195 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+TaskHandle_t xTaskGetIdleTaskHandle( void ) __attribute__((section("privileged_functions")));
+# 1294 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+UBaseType_t uxTaskGetSystemState( TaskStatus_t * const pxTaskStatusArray, const UBaseType_t uxArraySize, uint32_t * const pulTotalRunTime ) __attribute__((section("privileged_functions")));
+# 1341 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+void vTaskList( char * pcWriteBuffer ) __attribute__((section("privileged_functions")));
+# 1395 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+void vTaskGetRunTimeStats( char *pcWriteBuffer ) __attribute__((section("privileged_functions")));
+# 1476 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+BaseType_t xTaskGenericNotify( TaskHandle_t xTaskToNotify, uint32_t ulValue, eNotifyAction eAction, uint32_t *pulPreviousNotificationValue ) __attribute__((section("privileged_functions")));
+#define xTaskNotify(xTaskToNotify,ulValue,eAction) xTaskGenericNotify( ( xTaskToNotify ), ( ulValue ), ( eAction ), NULL )
+#define xTaskNotifyAndQuery(xTaskToNotify,ulValue,eAction,pulPreviousNotifyValue) xTaskGenericNotify( ( xTaskToNotify ), ( ulValue ), ( eAction ), ( pulPreviousNotifyValue ) )
+# 1567 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+BaseType_t xTaskGenericNotifyFromISR( TaskHandle_t xTaskToNotify, uint32_t ulValue, eNotifyAction eAction, uint32_t *pulPreviousNotificationValue, BaseType_t *pxHigherPriorityTaskWoken ) __attribute__((section("privileged_functions")));
+#define xTaskNotifyFromISR(xTaskToNotify,ulValue,eAction,pxHigherPriorityTaskWoken) xTaskGenericNotifyFromISR( ( xTaskToNotify ), ( ulValue ), ( eAction ), NULL, ( pxHigherPriorityTaskWoken ) )
+#define xTaskNotifyAndQueryFromISR(xTaskToNotify,ulValue,eAction,pulPreviousNotificationValue,pxHigherPriorityTaskWoken) xTaskGenericNotifyFromISR( ( xTaskToNotify ), ( ulValue ), ( eAction ), ( pulPreviousNotificationValue ), ( pxHigherPriorityTaskWoken ) )
+# 1644 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+BaseType_t xTaskNotifyWait( uint32_t ulBitsToClearOnEntry, uint32_t ulBitsToClearOnExit, uint32_t *pulNotificationValue, TickType_t xTicksToWait ) __attribute__((section("privileged_functions")));
+# 1690 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+#define xTaskNotifyGive(xTaskToNotify) xTaskGenericNotify( ( xTaskToNotify ), ( 0 ), eIncrement, NULL )
+# 1745 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+void vTaskNotifyGiveFromISR( TaskHandle_t xTaskToNotify, BaseType_t *pxHigherPriorityTaskWoken ) __attribute__((section("privileged_functions")));
+# 1814 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+uint32_t ulTaskNotifyTake( BaseType_t xClearCountOnExit, TickType_t xTicksToWait ) __attribute__((section("privileged_functions")));
+# 1830 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+BaseType_t xTaskNotifyStateClear( TaskHandle_t xTask );
+# 1851 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+BaseType_t xTaskIncrementTick( void ) __attribute__((section("privileged_functions")));
+# 1884 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+void vTaskPlaceOnEventList( List_t * const pxEventList, const TickType_t xTicksToWait ) __attribute__((section("privileged_functions")));
+void vTaskPlaceOnUnorderedEventList( List_t * pxEventList, const TickType_t xItemValue, const TickType_t xTicksToWait ) __attribute__((section("privileged_functions")));
+# 1898 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+void vTaskPlaceOnEventListRestricted( List_t * const pxEventList, const TickType_t xTicksToWait, const BaseType_t xWaitIndefinitely ) __attribute__((section("privileged_functions")));
+# 1924 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+BaseType_t xTaskRemoveFromEventList( const List_t * const pxEventList ) __attribute__((section("privileged_functions")));
+BaseType_t xTaskRemoveFromUnorderedEventList( ListItem_t * pxEventListItem, const TickType_t xItemValue ) __attribute__((section("privileged_functions")));
+# 1935 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+void vTaskSwitchContext( void ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+TickType_t uxTaskResetEventItemValue( void ) __attribute__((section("privileged_functions")));
+
+
+
+
+TaskHandle_t xTaskGetCurrentTaskHandle( void ) __attribute__((section("privileged_functions")));
+
+
+
+
+void vTaskSetTimeOutState( TimeOut_t * const pxTimeOut ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+BaseType_t xTaskCheckForTimeOut( TimeOut_t * const pxTimeOut, TickType_t * const pxTicksToWait ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+void vTaskMissedYield( void ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+BaseType_t xTaskGetSchedulerState( void ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+void vTaskPriorityInherit( TaskHandle_t const pxMutexHolder ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+BaseType_t xTaskPriorityDisinherit( TaskHandle_t const pxMutexHolder ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+BaseType_t xTaskGenericCreate( TaskFunction_t pxTaskCode, const char * const pcName, const uint16_t usStackDepth, void * const pvParameters, UBaseType_t uxPriority, TaskHandle_t * const pxCreatedTask, StackType_t * const puxStackBuffer, const MemoryRegion_t * const xRegions ) __attribute__((section("privileged_functions")));
+
+
+
+
+UBaseType_t uxTaskGetTaskNumber( TaskHandle_t xTask ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+void vTaskSetTaskNumber( TaskHandle_t xTask, const UBaseType_t uxHandle ) __attribute__((section("privileged_functions")));
+# 2008 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+void vTaskStepTick( const TickType_t xTicksToJump ) __attribute__((section("privileged_functions")));
+# 2024 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h"
+eSleepModeStatus eTaskConfirmSleepModeStatus( void ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+void *pvTaskIncrementMutexHeldCount( void ) __attribute__((section("privileged_functions")));
+# 86 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c" 2
+# 1 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h" 1
+# 72 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+#define TIMERS_H 
+
+
+
+
+
+
+
+# 1 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/task.h" 1
+# 81 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h" 2
+# 96 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+#define tmrCOMMAND_EXECUTE_CALLBACK_FROM_ISR ( ( BaseType_t ) -2 )
+#define tmrCOMMAND_EXECUTE_CALLBACK ( ( BaseType_t ) -1 )
+#define tmrCOMMAND_START_DONT_TRACE ( ( BaseType_t ) 0 )
+#define tmrCOMMAND_START ( ( BaseType_t ) 1 )
+#define tmrCOMMAND_RESET ( ( BaseType_t ) 2 )
+#define tmrCOMMAND_STOP ( ( BaseType_t ) 3 )
+#define tmrCOMMAND_CHANGE_PERIOD ( ( BaseType_t ) 4 )
+#define tmrCOMMAND_DELETE ( ( BaseType_t ) 5 )
+
+#define tmrFIRST_FROM_ISR_COMMAND ( ( BaseType_t ) 6 )
+#define tmrCOMMAND_START_FROM_ISR ( ( BaseType_t ) 6 )
+#define tmrCOMMAND_RESET_FROM_ISR ( ( BaseType_t ) 7 )
+#define tmrCOMMAND_STOP_FROM_ISR ( ( BaseType_t ) 8 )
+#define tmrCOMMAND_CHANGE_PERIOD_FROM_ISR ( ( BaseType_t ) 9 )
+# 118 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+typedef void * TimerHandle_t;
+
+
+
+
+typedef void (*TimerCallbackFunction_t)( TimerHandle_t xTimer );
+
+
+
+
+
+typedef void (*PendedFunction_t)( void *, uint32_t );
+# 260 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+TimerHandle_t xTimerCreate( const char * const pcTimerName, const TickType_t xTimerPeriodInTicks, const UBaseType_t uxAutoReload, void * const pvTimerID, TimerCallbackFunction_t pxCallbackFunction ) __attribute__((section("privileged_functions")));
+# 282 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+void *pvTimerGetTimerID( const TimerHandle_t xTimer ) __attribute__((section("privileged_functions")));
+# 303 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+void vTimerSetTimerID( TimerHandle_t xTimer, void *pvNewID ) __attribute__((section("privileged_functions")));
+# 340 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+BaseType_t xTimerIsTimerActive( TimerHandle_t xTimer ) __attribute__((section("privileged_functions")));
+# 351 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+TaskHandle_t xTimerGetTimerDaemonTaskHandle( void ) __attribute__((section("privileged_functions")));
+# 403 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+#define xTimerStart(xTimer,xTicksToWait) xTimerGenericCommand( ( xTimer ), tmrCOMMAND_START, ( xTaskGetTickCount() ), NULL, ( xTicksToWait ) )
+# 445 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+#define xTimerStop(xTimer,xTicksToWait) xTimerGenericCommand( ( xTimer ), tmrCOMMAND_STOP, 0U, NULL, ( xTicksToWait ) )
+# 525 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+#define xTimerChangePeriod(xTimer,xNewPeriod,xTicksToWait) xTimerGenericCommand( ( xTimer ), tmrCOMMAND_CHANGE_PERIOD, ( xNewPeriod ), NULL, ( xTicksToWait ) )
+# 563 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+#define xTimerDelete(xTimer,xTicksToWait) xTimerGenericCommand( ( xTimer ), tmrCOMMAND_DELETE, 0U, NULL, ( xTicksToWait ) )
+# 687 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+#define xTimerReset(xTimer,xTicksToWait) xTimerGenericCommand( ( xTimer ), tmrCOMMAND_RESET, ( xTaskGetTickCount() ), NULL, ( xTicksToWait ) )
+# 773 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+#define xTimerStartFromISR(xTimer,pxHigherPriorityTaskWoken) xTimerGenericCommand( ( xTimer ), tmrCOMMAND_START_FROM_ISR, ( xTaskGetTickCountFromISR() ), ( pxHigherPriorityTaskWoken ), 0U )
+# 836 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+#define xTimerStopFromISR(xTimer,pxHigherPriorityTaskWoken) xTimerGenericCommand( ( xTimer ), tmrCOMMAND_STOP_FROM_ISR, 0, ( pxHigherPriorityTaskWoken ), 0U )
+# 909 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+#define xTimerChangePeriodFromISR(xTimer,xNewPeriod,pxHigherPriorityTaskWoken) xTimerGenericCommand( ( xTimer ), tmrCOMMAND_CHANGE_PERIOD_FROM_ISR, ( xNewPeriod ), ( pxHigherPriorityTaskWoken ), 0U )
+# 995 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+#define xTimerResetFromISR(xTimer,pxHigherPriorityTaskWoken) xTimerGenericCommand( ( xTimer ), tmrCOMMAND_RESET_FROM_ISR, ( xTaskGetTickCountFromISR() ), ( pxHigherPriorityTaskWoken ), 0U )
+# 1086 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+BaseType_t xTimerPendFunctionCallFromISR( PendedFunction_t xFunctionToPend, void *pvParameter1, uint32_t ulParameter2, BaseType_t *pxHigherPriorityTaskWoken ) __attribute__((section("privileged_functions")));
+# 1120 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+BaseType_t xTimerPendFunctionCall( PendedFunction_t xFunctionToPend, void *pvParameter1, uint32_t ulParameter2, TickType_t xTicksToWait ) __attribute__((section("privileged_functions")));
+# 1131 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/timers.h"
+const char * pcTimerGetTimerName( TimerHandle_t xTimer ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+BaseType_t xTimerCreateTimerTask( void ) __attribute__((section("privileged_functions")));
+BaseType_t xTimerGenericCommand( TimerHandle_t xTimer, const BaseType_t xCommandID, const TickType_t xOptionalValue, BaseType_t * const pxHigherPriorityTaskWoken, const TickType_t xTicksToWait ) __attribute__((section("privileged_functions")));
+# 87 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c" 2
+# 1 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/StackMacros.h" 1
+# 71 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/StackMacros.h"
+#define STACK_MACROS_H 
+# 122 "/home/jaguar/Downloads/FreeRTOS_demos/Openthis-proj-with-lpcxpresso7.8/MPU_demo1_freertos8.2.3_lpcopen_semiHost_applicationUPgraded/FreeRTOS-Plus-Demo-1/Source/FreeRTOS-Products/FreeRTOS/include/StackMacros.h"
+#define taskCHECK_FOR_STACK_OVERFLOW() { const uint32_t * const pulStack = ( uint32_t * ) pxCurrentTCB->pxStack; const uint32_t ulCheckValue = ( uint32_t ) 0xa5a5a5a5; if( ( pulStack[ 0 ] != ulCheckValue ) || ( pulStack[ 1 ] != ulCheckValue ) || ( pulStack[ 2 ] != ulCheckValue ) || ( pulStack[ 3 ] != ulCheckValue ) ) { vApplicationStackOverflowHook( ( TaskHandle_t ) pxCurrentTCB, pxCurrentTCB->pcTaskName ); } }
+# 88 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c" 2
+
+
+
+
+
+
+#undef MPU_WRAPPERS_INCLUDED_FROM_API_FILE
+# 116 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+#define tskIDLE_STACK_SIZE configMINIMAL_STACK_SIZE
+
+
+
+
+
+
+#define taskYIELD_IF_USING_PREEMPTION() portYIELD_WITHIN_API()
+
+
+
+typedef enum
+{
+ eNotWaitingNotification = 0,
+ eWaitingNotification,
+ eNotified
+} eNotifyValue;
+
+
+
+
+
+
+typedef struct tskTaskControlBlock
+{
+ volatile StackType_t *pxTopOfStack;
+
+
+  xMPU_SETTINGS xMPUSettings;
+  BaseType_t xUsingStaticallyAllocatedStack;
+
+
+ ListItem_t xGenericListItem;
+ ListItem_t xEventListItem;
+ UBaseType_t uxPriority;
+ StackType_t *pxStack;
+ char pcTaskName[ ( 12 ) ];
+# 163 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+  UBaseType_t uxTCBNumber;
+  UBaseType_t uxTaskNumber;
+
+
+
+  UBaseType_t uxBasePriority;
+  UBaseType_t uxMutexesHeld;
+# 181 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+  uint32_t ulRunTimeCounter;
+# 196 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+  volatile uint32_t ulNotifiedValue;
+  volatile eNotifyValue eNotifyState;
+
+
+} tskTCB;
+
+
+
+typedef tskTCB TCB_t;
+# 217 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+__attribute__((section("privileged_data"))) TCB_t * volatile pxCurrentTCB = ((void *)0);
+
+
+
+
+__attribute__((section("privileged_data"))) static List_t pxReadyTasksLists[ ( 7 ) ];
+__attribute__((section("privileged_data"))) static List_t xDelayedTaskList1;
+__attribute__((section("privileged_data"))) static List_t xDelayedTaskList2;
+__attribute__((section("privileged_data"))) static List_t * volatile pxDelayedTaskList;
+__attribute__((section("privileged_data"))) static List_t * volatile pxOverflowDelayedTaskList;
+__attribute__((section("privileged_data"))) static List_t xPendingReadyList;
+
+
+
+ __attribute__((section("privileged_data"))) static List_t xTasksWaitingTermination;
+ __attribute__((section("privileged_data"))) static volatile UBaseType_t uxTasksDeleted = ( UBaseType_t ) 0U;
+
+
+
+
+
+ __attribute__((section("privileged_data"))) static List_t xSuspendedTaskList;
+# 249 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+__attribute__((section("privileged_data"))) static volatile UBaseType_t uxCurrentNumberOfTasks = ( UBaseType_t ) 0U;
+
+__attribute__((section("privileged_data"))) static volatile TickType_t xTickCount = ( TickType_t ) 0U;
+__attribute__((section("privileged_data"))) static volatile UBaseType_t uxTopReadyPriority = ( ( UBaseType_t ) 0U );
+__attribute__((section("privileged_data"))) static volatile BaseType_t xSchedulerRunning = ( ( BaseType_t ) 0 );
+__attribute__((section("privileged_data"))) static volatile UBaseType_t uxPendedTicks = ( UBaseType_t ) 0U;
+__attribute__((section("privileged_data"))) static volatile BaseType_t xYieldPending = ( ( BaseType_t ) 0 );
+__attribute__((section("privileged_data"))) static volatile BaseType_t xNumOfOverflows = ( BaseType_t ) 0;
+__attribute__((section("privileged_data"))) static UBaseType_t uxTaskNumber = ( UBaseType_t ) 0U;
+__attribute__((section("privileged_data"))) static volatile TickType_t xNextTaskUnblockTime = ( TickType_t ) 0U;
+# 268 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+__attribute__((section("privileged_data"))) static volatile UBaseType_t uxSchedulerSuspended = ( UBaseType_t ) ( ( BaseType_t ) 0 );
+
+
+
+ __attribute__((section("privileged_data"))) static uint32_t ulTaskSwitchedInTime = 0UL;
+ __attribute__((section("privileged_data"))) static uint32_t ulTotalRunTime = 0UL;
+# 285 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+#define tskSTACK_FILL_BYTE ( 0xa5U )
+
+
+
+
+#define tskBLOCKED_CHAR ( 'B' )
+#define tskREADY_CHAR ( 'R' )
+#define tskDELETED_CHAR ( 'D' )
+#define tskSUSPENDED_CHAR ( 'S' )
+# 305 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+#define taskRECORD_READY_PRIORITY(uxPriority) { if( ( uxPriority ) > uxTopReadyPriority ) { uxTopReadyPriority = ( uxPriority ); } }
+# 315 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+#define taskSELECT_HIGHEST_PRIORITY_TASK() { while( listLIST_IS_EMPTY( &( pxReadyTasksLists[ uxTopReadyPriority ] ) ) ) { configASSERT( uxTopReadyPriority ); --uxTopReadyPriority; } listGET_OWNER_OF_NEXT_ENTRY( pxCurrentTCB, &( pxReadyTasksLists[ uxTopReadyPriority ] ) ); }
+# 334 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+#define taskRESET_READY_PRIORITY(uxPriority) 
+#define portRESET_READY_PRIORITY(uxPriority,uxTopReadyPriority) 
+# 377 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+#define taskSWITCH_DELAYED_LISTS() { List_t *pxTemp; configASSERT( ( listLIST_IS_EMPTY( pxDelayedTaskList ) ) ); pxTemp = pxDelayedTaskList; pxDelayedTaskList = pxOverflowDelayedTaskList; pxOverflowDelayedTaskList = pxTemp; xNumOfOverflows++; prvResetNextTaskUnblockTime(); }
+# 397 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+#define prvAddTaskToReadyList(pxTCB) traceMOVED_TASK_TO_READY_STATE( pxTCB ); taskRECORD_READY_PRIORITY( ( pxTCB )->uxPriority ); vListInsertEnd( &( pxReadyTasksLists[ ( pxTCB )->uxPriority ] ), &( ( pxTCB )->xGenericListItem ) )
+# 409 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+#define prvGetTCBFromHandle(pxHandle) ( ( ( pxHandle ) == NULL ) ? ( TCB_t * ) pxCurrentTCB : ( TCB_t * ) ( pxHandle ) )
+# 422 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+#define taskEVENT_LIST_ITEM_VALUE_IN_USE 0x80000000UL
+
+
+
+
+ extern void vApplicationStackOverflowHook( TaskHandle_t xTask, char *pcTaskName );
+# 440 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+static void prvInitialiseTCBVariables( TCB_t * const pxTCB, const char * const pcName, UBaseType_t uxPriority, const MemoryRegion_t * const xRegions, const uint16_t usStackDepth ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+
+
+ static BaseType_t prvTaskIsTaskSuspended( const TaskHandle_t xTask ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+
+static void prvInitialiseTaskLists( void ) __attribute__((section("privileged_functions")));
+# 468 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+static void prvIdleTask( void *pvParameters );
+# 479 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ static void prvDeleteTCB( TCB_t *pxTCB ) __attribute__((section("privileged_functions")));
+# 488 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+static void prvCheckTasksWaitingTermination( void ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+static void prvAddCurrentTaskToDelayedList( const TickType_t xTimeToWake ) __attribute__((section("privileged_functions")));
+
+
+
+
+
+static TCB_t *prvAllocateTCBAndStack( const uint16_t usStackDepth, StackType_t * const puxStackBuffer ) __attribute__((section("privileged_functions")));
+# 512 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ static UBaseType_t prvListTaskWithinSingleList( TaskStatus_t *pxTaskStatusArray, List_t *pxList, eTaskState eState ) __attribute__((section("privileged_functions")));
+# 523 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ static uint16_t prvTaskCheckFreeStackSpace( const uint8_t * pucStackByte ) __attribute__((section("privileged_functions")));
+# 546 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+static void prvResetNextTaskUnblockTime( void );
+# 559 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+BaseType_t xTaskGenericCreate( TaskFunction_t pxTaskCode, const char * const pcName, const uint16_t usStackDepth, void * const pvParameters, UBaseType_t uxPriority, TaskHandle_t * const pxCreatedTask, StackType_t * const puxStackBuffer, const MemoryRegion_t * const xRegions )
+{
+BaseType_t xReturn;
+TCB_t * pxNewTCB;
+StackType_t *pxTopOfStack;
+
+ if( ( pxTaskCode ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+ if( ( ( ( uxPriority & ( UBaseType_t ) ( ~( 0x80000000UL ) ) ) < ( UBaseType_t ) ( 7 ) ) ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+
+
+
+ pxNewTCB = prvAllocateTCBAndStack( usStackDepth, puxStackBuffer );
+
+ if( pxNewTCB != ((void *)0) )
+ {
+
+
+   BaseType_t xRunPrivileged;
+   if( ( uxPriority & ( 0x80000000UL ) ) != 0U )
+   {
+    xRunPrivileged = ( ( BaseType_t ) 1 );
+   }
+   else
+   {
+    xRunPrivileged = ( ( BaseType_t ) 0 );
+   }
+   uxPriority &= ~( 0x80000000UL );
+
+   if( puxStackBuffer != ((void *)0) )
+   {
+
+
+
+    pxNewTCB->xUsingStaticallyAllocatedStack = ( ( BaseType_t ) 1 );
+   }
+   else
+   {
+
+
+    pxNewTCB->xUsingStaticallyAllocatedStack = ( ( BaseType_t ) 0 );
+   }
+
+
+
+
+
+
+
+  {
+   pxTopOfStack = pxNewTCB->pxStack + ( usStackDepth - ( uint16_t ) 1 );
+   pxTopOfStack = ( StackType_t * ) ( ( ( uint32_t ) pxTopOfStack ) & ( ~( ( uint32_t ) ( 0x0007 ) ) ) );
+
+
+   if( ( ( ( ( uint32_t ) pxTopOfStack & ( uint32_t ) ( 0x0007 ) ) == 0UL ) ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+  }
+# 629 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+  prvInitialiseTCBVariables( pxNewTCB, pcName, uxPriority, xRegions, usStackDepth );
+
+
+
+
+
+
+  {
+   pxNewTCB->pxTopOfStack = pxPortInitialiseStack( pxTopOfStack, pxTaskCode, pvParameters, xRunPrivileged );
+  }
+
+
+
+
+
+
+  if( ( void * ) pxCreatedTask != ((void *)0) )
+  {
+
+
+
+   *pxCreatedTask = ( TaskHandle_t ) pxNewTCB;
+  }
+  else
+  {
+   ;
+  }
+
+
+
+  vPortEnterCritical();
+  {
+   uxCurrentNumberOfTasks++;
+   if( pxCurrentTCB == ((void *)0) )
+   {
+
+
+    pxCurrentTCB = pxNewTCB;
+
+    if( uxCurrentNumberOfTasks == ( UBaseType_t ) 1 )
+    {
+
+
+
+     prvInitialiseTaskLists();
+    }
+    else
+    {
+     ;
+    }
+   }
+   else
+   {
+
+
+
+    if( xSchedulerRunning == ( ( BaseType_t ) 0 ) )
+    {
+     if( pxCurrentTCB->uxPriority <= uxPriority )
+     {
+      pxCurrentTCB = pxNewTCB;
+     }
+     else
+     {
+      ;
+     }
+    }
+    else
+    {
+     ;
+    }
+   }
+
+   uxTaskNumber++;
+
+
+   {
+
+    pxNewTCB->uxTCBNumber = uxTaskNumber;
+   }
+
+   ;
+
+   ; { if( ( ( pxNewTCB )->uxPriority ) > uxTopReadyPriority ) { uxTopReadyPriority = ( ( pxNewTCB )->uxPriority ); } }; vListInsertEnd( &( pxReadyTasksLists[ ( pxNewTCB )->uxPriority ] ), &( ( pxNewTCB )->xGenericListItem ) );
+
+   xReturn = ( ( ( BaseType_t ) 1 ) );
+   ( void ) pxNewTCB;
+  }
+  vPortExitCritical();
+ }
+ else
+ {
+  xReturn = ( -1 );
+  ;
+ }
+
+ if( xReturn == ( ( ( BaseType_t ) 1 ) ) )
+ {
+  if( xSchedulerRunning != ( ( BaseType_t ) 0 ) )
+  {
+
+
+   if( pxCurrentTCB->uxPriority < uxPriority )
+   {
+    *(( ( volatile uint32_t *) 0xe000ed04 )) = 0x10000000;
+   }
+   else
+   {
+    ;
+   }
+  }
+  else
+  {
+   ;
+  }
+ }
+
+ return xReturn;
+}
+
+
+
+
+ void vTaskDelete( TaskHandle_t xTaskToDelete )
+ {
+ TCB_t *pxTCB;
+
+  vPortEnterCritical();
+  {
+
+
+   pxTCB = ( ( ( xTaskToDelete ) == ((void *)0) ) ? ( TCB_t * ) pxCurrentTCB : ( TCB_t * ) ( xTaskToDelete ) );
+
+
+
+
+
+   if( uxListRemove( &( pxTCB->xGenericListItem ) ) == ( UBaseType_t ) 0 )
+   {
+    ;
+   }
+   else
+   {
+    ;
+   }
+
+
+   if( ( ( &( pxTCB->xEventListItem ) )->pvContainer ) != ((void *)0) )
+   {
+    ( void ) uxListRemove( &( pxTCB->xEventListItem ) );
+   }
+   else
+   {
+    ;
+   }
+
+   vListInsertEnd( &xTasksWaitingTermination, &( pxTCB->xGenericListItem ) );
+
+
+
+
+   ++uxTasksDeleted;
+
+
+
+   uxTaskNumber++;
+
+   ;
+  }
+  vPortExitCritical();
+
+
+
+  if( xSchedulerRunning != ( ( BaseType_t ) 0 ) )
+  {
+   if( pxTCB == pxCurrentTCB )
+   {
+    if( ( uxSchedulerSuspended == 0 ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+
+
+
+
+
+
+    ;
+    *(( ( volatile uint32_t *) 0xe000ed04 )) = 0x10000000;
+   }
+   else
+   {
+
+
+    vPortEnterCritical();
+    {
+     prvResetNextTaskUnblockTime();
+    }
+    vPortExitCritical();
+   }
+  }
+ }
+
+
+
+
+
+
+ void vTaskDelayUntil( TickType_t * const pxPreviousWakeTime, const TickType_t xTimeIncrement )
+ {
+ TickType_t xTimeToWake;
+ BaseType_t xAlreadyYielded, xShouldDelay = ( ( BaseType_t ) 0 );
+
+  if( ( pxPreviousWakeTime ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+  if( ( ( xTimeIncrement > 0U ) ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+  if( ( uxSchedulerSuspended == 0 ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+
+  vTaskSuspendAll();
+  {
+
+
+   const TickType_t xConstTickCount = xTickCount;
+
+
+   xTimeToWake = *pxPreviousWakeTime + xTimeIncrement;
+
+   if( xConstTickCount < *pxPreviousWakeTime )
+   {
+
+
+
+
+
+    if( ( xTimeToWake < *pxPreviousWakeTime ) && ( xTimeToWake > xConstTickCount ) )
+    {
+     xShouldDelay = ( ( BaseType_t ) 1 );
+    }
+    else
+    {
+     ;
+    }
+   }
+   else
+   {
+
+
+
+    if( ( xTimeToWake < *pxPreviousWakeTime ) || ( xTimeToWake > xConstTickCount ) )
+    {
+     xShouldDelay = ( ( BaseType_t ) 1 );
+    }
+    else
+    {
+     ;
+    }
+   }
+
+
+   *pxPreviousWakeTime = xTimeToWake;
+
+   if( xShouldDelay != ( ( BaseType_t ) 0 ) )
+   {
+    ;
+
+
+
+    if( uxListRemove( &( pxCurrentTCB->xGenericListItem ) ) == ( UBaseType_t ) 0 )
+    {
+
+
+
+     ;
+    }
+    else
+    {
+     ;
+    }
+
+    prvAddCurrentTaskToDelayedList( xTimeToWake );
+   }
+   else
+   {
+    ;
+   }
+  }
+  xAlreadyYielded = xTaskResumeAll();
+
+
+
+  if( xAlreadyYielded == ( ( BaseType_t ) 0 ) )
+  {
+   *(( ( volatile uint32_t *) 0xe000ed04 )) = 0x10000000;
+  }
+  else
+  {
+   ;
+  }
+ }
+
+
+
+
+
+
+ void vTaskDelay( const TickType_t xTicksToDelay )
+ {
+ TickType_t xTimeToWake;
+ BaseType_t xAlreadyYielded = ( ( BaseType_t ) 0 );
+
+
+
+  if( xTicksToDelay > ( TickType_t ) 0U )
+  {
+   if( ( uxSchedulerSuspended == 0 ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+   vTaskSuspendAll();
+   {
+    ;
+# 954 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+    xTimeToWake = xTickCount + xTicksToDelay;
+
+
+
+
+    if( uxListRemove( &( pxCurrentTCB->xGenericListItem ) ) == ( UBaseType_t ) 0 )
+    {
+
+
+
+     ;
+    }
+    else
+    {
+     ;
+    }
+    prvAddCurrentTaskToDelayedList( xTimeToWake );
+   }
+   xAlreadyYielded = xTaskResumeAll();
+  }
+  else
+  {
+   ;
+  }
+
+
+
+  if( xAlreadyYielded == ( ( BaseType_t ) 0 ) )
+  {
+   *(( ( volatile uint32_t *) 0xe000ed04 )) = 0x10000000;
+  }
+  else
+  {
+   ;
+  }
+ }
+# 1066 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ UBaseType_t uxTaskPriorityGet( TaskHandle_t xTask )
+ {
+ TCB_t *pxTCB;
+ UBaseType_t uxReturn;
+
+  vPortEnterCritical();
+  {
+
+
+   pxTCB = ( ( ( xTask ) == ((void *)0) ) ? ( TCB_t * ) pxCurrentTCB : ( TCB_t * ) ( xTask ) );
+   uxReturn = pxTCB->uxPriority;
+  }
+  vPortExitCritical();
+
+  return uxReturn;
+ }
+
+
+
+
+
+
+ UBaseType_t uxTaskPriorityGetFromISR( TaskHandle_t xTask )
+ {
+ TCB_t *pxTCB;
+ UBaseType_t uxReturn, uxSavedInterruptState;
+# 1109 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+  ;
+
+  uxSavedInterruptState = 0;__asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" );
+  {
+
+
+   pxTCB = ( ( ( xTask ) == ((void *)0) ) ? ( TCB_t * ) pxCurrentTCB : ( TCB_t * ) ( xTask ) );
+   uxReturn = pxTCB->uxPriority;
+  }
+  __asm volatile ( "	mov r0, #0					\n" "	msr basepri, r0				\n" :::"r0" );(void)uxSavedInterruptState;
+
+  return uxReturn;
+ }
+
+
+
+
+
+
+ void vTaskPrioritySet( TaskHandle_t xTask, UBaseType_t uxNewPriority )
+ {
+ TCB_t *pxTCB;
+ UBaseType_t uxCurrentBasePriority, uxPriorityUsedOnEntry;
+ BaseType_t xYieldRequired = ( ( BaseType_t ) 0 );
+
+  if( ( ( uxNewPriority < ( 7 ) ) ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+
+
+  if( uxNewPriority >= ( UBaseType_t ) ( 7 ) )
+  {
+   uxNewPriority = ( UBaseType_t ) ( 7 ) - ( UBaseType_t ) 1U;
+  }
+  else
+  {
+   ;
+  }
+
+  vPortEnterCritical();
+  {
+
+
+   pxTCB = ( ( ( xTask ) == ((void *)0) ) ? ( TCB_t * ) pxCurrentTCB : ( TCB_t * ) ( xTask ) );
+
+   ;
+
+
+   {
+    uxCurrentBasePriority = pxTCB->uxBasePriority;
+   }
+
+
+
+
+
+
+   if( uxCurrentBasePriority != uxNewPriority )
+   {
+
+
+    if( uxNewPriority > uxCurrentBasePriority )
+    {
+     if( pxTCB != pxCurrentTCB )
+     {
+
+
+
+      if( uxNewPriority >= pxCurrentTCB->uxPriority )
+      {
+       xYieldRequired = ( ( BaseType_t ) 1 );
+      }
+      else
+      {
+       ;
+      }
+     }
+     else
+     {
+
+
+
+     }
+    }
+    else if( pxTCB == pxCurrentTCB )
+    {
+
+
+
+     xYieldRequired = ( ( BaseType_t ) 1 );
+    }
+    else
+    {
+
+
+
+    }
+
+
+
+
+    uxPriorityUsedOnEntry = pxTCB->uxPriority;
+
+
+    {
+
+
+     if( pxTCB->uxBasePriority == pxTCB->uxPriority )
+     {
+      pxTCB->uxPriority = uxNewPriority;
+     }
+     else
+     {
+      ;
+     }
+
+
+     pxTCB->uxBasePriority = uxNewPriority;
+    }
+# 1234 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+    if( ( ( ( &( pxTCB->xEventListItem ) )->xItemValue ) & 0x80000000UL ) == 0UL )
+    {
+     ( ( &( pxTCB->xEventListItem ) )->xItemValue = ( ( ( TickType_t ) ( 7 ) - ( TickType_t ) uxNewPriority ) ) );
+    }
+    else
+    {
+     ;
+    }
+
+
+
+
+
+    if( ( ( BaseType_t ) ( ( &( pxTCB->xGenericListItem ) )->pvContainer == ( void * ) ( &( pxReadyTasksLists[ uxPriorityUsedOnEntry ] ) ) ) ) != ( ( BaseType_t ) 0 ) )
+    {
+
+
+
+     if( uxListRemove( &( pxTCB->xGenericListItem ) ) == ( UBaseType_t ) 0 )
+     {
+
+
+
+      ;
+     }
+     else
+     {
+      ;
+     }
+     ; { if( ( ( pxTCB )->uxPriority ) > uxTopReadyPriority ) { uxTopReadyPriority = ( ( pxTCB )->uxPriority ); } }; vListInsertEnd( &( pxReadyTasksLists[ ( pxTCB )->uxPriority ] ), &( ( pxTCB )->xGenericListItem ) );
+    }
+    else
+    {
+     ;
+    }
+
+    if( xYieldRequired == ( ( BaseType_t ) 1 ) )
+    {
+     *(( ( volatile uint32_t *) 0xe000ed04 )) = 0x10000000;
+    }
+    else
+    {
+     ;
+    }
+
+
+
+    ( void ) uxPriorityUsedOnEntry;
+   }
+  }
+  vPortExitCritical();
+ }
+
+
+
+
+
+
+ void vTaskSuspend( TaskHandle_t xTaskToSuspend )
+ {
+ TCB_t *pxTCB;
+
+  vPortEnterCritical();
+  {
+
+
+   pxTCB = ( ( ( xTaskToSuspend ) == ((void *)0) ) ? ( TCB_t * ) pxCurrentTCB : ( TCB_t * ) ( xTaskToSuspend ) );
+
+   ;
+
+
+
+   if( uxListRemove( &( pxTCB->xGenericListItem ) ) == ( UBaseType_t ) 0 )
+   {
+    ;
+   }
+   else
+   {
+    ;
+   }
+
+
+   if( ( ( &( pxTCB->xEventListItem ) )->pvContainer ) != ((void *)0) )
+   {
+    ( void ) uxListRemove( &( pxTCB->xEventListItem ) );
+   }
+   else
+   {
+    ;
+   }
+
+   vListInsertEnd( &xSuspendedTaskList, &( pxTCB->xGenericListItem ) );
+  }
+  vPortExitCritical();
+
+  if( pxTCB == pxCurrentTCB )
+  {
+   if( xSchedulerRunning != ( ( BaseType_t ) 0 ) )
+   {
+
+    if( ( uxSchedulerSuspended == 0 ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+    *(( ( volatile uint32_t *) 0xe000ed04 )) = 0x10000000;
+   }
+   else
+   {
+
+
+
+    if( ( ( &xSuspendedTaskList )->uxNumberOfItems ) == uxCurrentNumberOfTasks )
+    {
+
+
+
+
+     pxCurrentTCB = ((void *)0);
+    }
+    else
+    {
+     vTaskSwitchContext();
+    }
+   }
+  }
+  else
+  {
+   if( xSchedulerRunning != ( ( BaseType_t ) 0 ) )
+   {
+
+
+
+    vPortEnterCritical();
+    {
+     prvResetNextTaskUnblockTime();
+    }
+    vPortExitCritical();
+   }
+   else
+   {
+    ;
+   }
+  }
+ }
+
+
+
+
+
+
+ static BaseType_t prvTaskIsTaskSuspended( const TaskHandle_t xTask )
+ {
+ BaseType_t xReturn = ( ( BaseType_t ) 0 );
+ const TCB_t * const pxTCB = ( TCB_t * ) xTask;
+
+
+
+
+
+  if( ( xTask ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+
+
+  if( ( ( BaseType_t ) ( ( &( pxTCB->xGenericListItem ) )->pvContainer == ( void * ) ( &xSuspendedTaskList ) ) ) != ( ( BaseType_t ) 0 ) )
+  {
+
+   if( ( ( BaseType_t ) ( ( &( pxTCB->xEventListItem ) )->pvContainer == ( void * ) ( &xPendingReadyList ) ) ) == ( ( BaseType_t ) 0 ) )
+   {
+
+
+    if( ( ( BaseType_t ) ( ( &( pxTCB->xEventListItem ) )->pvContainer == ( void * ) ( ((void *)0) ) ) ) != ( ( BaseType_t ) 0 ) )
+    {
+     xReturn = ( ( BaseType_t ) 1 );
+    }
+    else
+    {
+     ;
+    }
+   }
+   else
+   {
+    ;
+   }
+  }
+  else
+  {
+   ;
+  }
+
+  return xReturn;
+ }
+
+
+
+
+
+
+ void vTaskResume( TaskHandle_t xTaskToResume )
+ {
+ TCB_t * const pxTCB = ( TCB_t * ) xTaskToResume;
+
+
+  if( ( xTaskToResume ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+
+
+
+  if( ( pxTCB != ((void *)0) ) && ( pxTCB != pxCurrentTCB ) )
+  {
+   vPortEnterCritical();
+   {
+    if( prvTaskIsTaskSuspended( pxTCB ) == ( ( BaseType_t ) 1 ) )
+    {
+     ;
+
+
+
+     ( void ) uxListRemove( &( pxTCB->xGenericListItem ) );
+     ; { if( ( ( pxTCB )->uxPriority ) > uxTopReadyPriority ) { uxTopReadyPriority = ( ( pxTCB )->uxPriority ); } }; vListInsertEnd( &( pxReadyTasksLists[ ( pxTCB )->uxPriority ] ), &( ( pxTCB )->xGenericListItem ) );
+
+
+     if( pxTCB->uxPriority >= pxCurrentTCB->uxPriority )
+     {
+
+
+
+      *(( ( volatile uint32_t *) 0xe000ed04 )) = 0x10000000;
+     }
+     else
+     {
+      ;
+     }
+    }
+    else
+    {
+     ;
+    }
+   }
+   vPortExitCritical();
+  }
+  else
+  {
+   ;
+  }
+ }
+
+
+
+
+
+
+
+ BaseType_t xTaskResumeFromISR( TaskHandle_t xTaskToResume )
+ {
+ BaseType_t xYieldRequired = ( ( BaseType_t ) 0 );
+ TCB_t * const pxTCB = ( TCB_t * ) xTaskToResume;
+ UBaseType_t uxSavedInterruptStatus;
+
+  if( ( xTaskToResume ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+# 1505 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+  ;
+
+  uxSavedInterruptStatus = 0;__asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" );
+  {
+   if( prvTaskIsTaskSuspended( pxTCB ) == ( ( BaseType_t ) 1 ) )
+   {
+    ;
+
+
+    if( uxSchedulerSuspended == ( UBaseType_t ) ( ( BaseType_t ) 0 ) )
+    {
+
+
+     if( pxTCB->uxPriority >= pxCurrentTCB->uxPriority )
+     {
+      xYieldRequired = ( ( BaseType_t ) 1 );
+     }
+     else
+     {
+      ;
+     }
+
+     ( void ) uxListRemove( &( pxTCB->xGenericListItem ) );
+     ; { if( ( ( pxTCB )->uxPriority ) > uxTopReadyPriority ) { uxTopReadyPriority = ( ( pxTCB )->uxPriority ); } }; vListInsertEnd( &( pxReadyTasksLists[ ( pxTCB )->uxPriority ] ), &( ( pxTCB )->xGenericListItem ) );
+    }
+    else
+    {
+
+
+
+     vListInsertEnd( &( xPendingReadyList ), &( pxTCB->xEventListItem ) );
+    }
+   }
+   else
+   {
+    ;
+   }
+  }
+  __asm volatile ( "	mov r0, #0					\n" "	msr basepri, r0				\n" :::"r0" );(void)uxSavedInterruptStatus;
+
+  return xYieldRequired;
+ }
+
+
+
+
+void vTaskStartScheduler( void )
+{
+BaseType_t xReturn;
+# 1563 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ {
+
+  xReturn = xTaskGenericCreate( ( prvIdleTask ), ( "IDLE" ), ( ( ( unsigned short ) 90 ) ), ( ( void * ) ((void *)0) ), ( ( ( ( UBaseType_t ) 0U ) | ( 0x80000000UL ) ) ), ( ((void *)0) ), ( ((void *)0) ), ( ((void *)0) ) );
+ }
+
+
+
+ {
+  if( xReturn == ( ( ( BaseType_t ) 1 ) ) )
+  {
+   xReturn = xTimerCreateTimerTask();
+  }
+  else
+  {
+   ;
+  }
+ }
+
+
+ if( xReturn == ( ( ( BaseType_t ) 1 ) ) )
+ {
+
+
+
+
+
+  __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" );
+# 1599 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+  xNextTaskUnblockTime = ( TickType_t ) 0xffffffffUL;
+  xSchedulerRunning = ( ( BaseType_t ) 1 );
+  xTickCount = ( TickType_t ) 0U;
+
+
+
+
+  vMainConfigureTimerForRunTimeStats();
+
+
+
+  if( xPortStartScheduler() != ( ( BaseType_t ) 0 ) )
+  {
+
+
+  }
+  else
+  {
+
+  }
+ }
+ else
+ {
+
+
+
+  if( ( xReturn ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+ }
+}
+
+
+void vTaskEndScheduler( void )
+{
+
+
+
+ __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" );
+ xSchedulerRunning = ( ( BaseType_t ) 0 );
+ vPortEndScheduler();
+}
+
+
+void vTaskSuspendAll( void )
+{
+
+
+
+
+ ++uxSchedulerSuspended;
+}
+# 1679 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+BaseType_t xTaskResumeAll( void )
+{
+TCB_t *pxTCB;
+BaseType_t xAlreadyYielded = ( ( BaseType_t ) 0 );
+
+
+
+ if( ( uxSchedulerSuspended ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+
+
+
+
+
+
+ vPortEnterCritical();
+ {
+  --uxSchedulerSuspended;
+
+  if( uxSchedulerSuspended == ( UBaseType_t ) ( ( BaseType_t ) 0 ) )
+  {
+   if( uxCurrentNumberOfTasks > ( UBaseType_t ) 0U )
+   {
+
+
+    while( ( ( BaseType_t ) ( ( &xPendingReadyList )->uxNumberOfItems == ( UBaseType_t ) 0 ) ) == ( ( BaseType_t ) 0 ) )
+    {
+     pxTCB = ( TCB_t * ) ( (&( ( ( &xPendingReadyList ) )->xListEnd ))->pxNext->pvOwner );
+     ( void ) uxListRemove( &( pxTCB->xEventListItem ) );
+     ( void ) uxListRemove( &( pxTCB->xGenericListItem ) );
+     ; { if( ( ( pxTCB )->uxPriority ) > uxTopReadyPriority ) { uxTopReadyPriority = ( ( pxTCB )->uxPriority ); } }; vListInsertEnd( &( pxReadyTasksLists[ ( pxTCB )->uxPriority ] ), &( ( pxTCB )->xGenericListItem ) );
+
+
+
+     if( pxTCB->uxPriority >= pxCurrentTCB->uxPriority )
+     {
+      xYieldPending = ( ( BaseType_t ) 1 );
+     }
+     else
+     {
+      ;
+     }
+    }
+
+
+
+
+
+    if( uxPendedTicks > ( UBaseType_t ) 0U )
+    {
+     while( uxPendedTicks > ( UBaseType_t ) 0U )
+     {
+      if( xTaskIncrementTick() != ( ( BaseType_t ) 0 ) )
+      {
+       xYieldPending = ( ( BaseType_t ) 1 );
+      }
+      else
+      {
+       ;
+      }
+      --uxPendedTicks;
+     }
+    }
+    else
+    {
+     ;
+    }
+
+    if( xYieldPending == ( ( BaseType_t ) 1 ) )
+    {
+
+     {
+      xAlreadyYielded = ( ( BaseType_t ) 1 );
+     }
+
+     *(( ( volatile uint32_t *) 0xe000ed04 )) = 0x10000000;
+    }
+    else
+    {
+     ;
+    }
+   }
+  }
+  else
+  {
+   ;
+  }
+ }
+ vPortExitCritical();
+
+ return xAlreadyYielded;
+}
+
+
+TickType_t xTaskGetTickCount( void )
+{
+TickType_t xTicks;
+
+
+ vPortEnterCritical();
+ {
+  xTicks = xTickCount;
+ }
+ vPortExitCritical();
+
+ return xTicks;
+}
+
+
+TickType_t xTaskGetTickCountFromISR( void )
+{
+TickType_t xReturn;
+UBaseType_t uxSavedInterruptStatus;
+# 1806 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ ;
+
+ uxSavedInterruptStatus = 0;__asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" );
+ {
+  xReturn = xTickCount;
+ }
+ __asm volatile ( "	mov r0, #0					\n" "	msr basepri, r0				\n" :::"r0" );(void)( uxSavedInterruptStatus );
+
+ return xReturn;
+}
+
+
+UBaseType_t uxTaskGetNumberOfTasks( void )
+{
+
+
+ return uxCurrentNumberOfTasks;
+}
+# 1843 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ UBaseType_t uxTaskGetSystemState( TaskStatus_t * const pxTaskStatusArray, const UBaseType_t uxArraySize, uint32_t * const pulTotalRunTime )
+ {
+ UBaseType_t uxTask = 0, uxQueue = ( 7 );
+
+  vTaskSuspendAll();
+  {
+
+   if( uxArraySize >= uxCurrentNumberOfTasks )
+   {
+
+
+    do
+    {
+     uxQueue--;
+     uxTask += prvListTaskWithinSingleList( &( pxTaskStatusArray[ uxTask ] ), &( pxReadyTasksLists[ uxQueue ] ), eReady );
+
+    } while( uxQueue > ( UBaseType_t ) ( ( UBaseType_t ) 0U ) );
+
+
+
+    uxTask += prvListTaskWithinSingleList( &( pxTaskStatusArray[ uxTask ] ), ( List_t * ) pxDelayedTaskList, eBlocked );
+    uxTask += prvListTaskWithinSingleList( &( pxTaskStatusArray[ uxTask ] ), ( List_t * ) pxOverflowDelayedTaskList, eBlocked );
+
+
+    {
+
+
+     uxTask += prvListTaskWithinSingleList( &( pxTaskStatusArray[ uxTask ] ), &xTasksWaitingTermination, eDeleted );
+    }
+
+
+
+    {
+
+
+     uxTask += prvListTaskWithinSingleList( &( pxTaskStatusArray[ uxTask ] ), &xSuspendedTaskList, eSuspended );
+    }
+
+
+
+    {
+     if( pulTotalRunTime != ((void *)0) )
+     {
+
+
+
+       *pulTotalRunTime = ulMainGetRunTimeCounterValue();
+
+     }
+    }
+# 1901 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+   }
+   else
+   {
+    ;
+   }
+  }
+  ( void ) xTaskResumeAll();
+
+  return uxTask;
+ }
+# 1947 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+BaseType_t xTaskIncrementTick( void )
+{
+TCB_t * pxTCB;
+TickType_t xItemValue;
+BaseType_t xSwitchRequired = ( ( BaseType_t ) 0 );
+
+
+
+
+ ;
+ if( uxSchedulerSuspended == ( UBaseType_t ) ( ( BaseType_t ) 0 ) )
+ {
+
+
+  ++xTickCount;
+
+  {
+
+
+   const TickType_t xConstTickCount = xTickCount;
+
+   if( xConstTickCount == ( TickType_t ) 0U )
+   {
+    { List_t *pxTemp; if( ( ( ( ( BaseType_t ) ( ( pxDelayedTaskList )->uxNumberOfItems == ( UBaseType_t ) 0 ) ) ) ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); }; pxTemp = pxDelayedTaskList; pxDelayedTaskList = pxOverflowDelayedTaskList; pxOverflowDelayedTaskList = pxTemp; xNumOfOverflows++; prvResetNextTaskUnblockTime(); };
+   }
+   else
+   {
+    ;
+   }
+
+
+
+
+
+   if( xConstTickCount >= xNextTaskUnblockTime )
+   {
+    for( ;; )
+    {
+     if( ( ( BaseType_t ) ( ( pxDelayedTaskList )->uxNumberOfItems == ( UBaseType_t ) 0 ) ) != ( ( BaseType_t ) 0 ) )
+     {
+
+
+
+
+
+      xNextTaskUnblockTime = ( TickType_t ) 0xffffffffUL;
+      break;
+     }
+     else
+     {
+
+
+
+
+      pxTCB = ( TCB_t * ) ( (&( ( pxDelayedTaskList )->xListEnd ))->pxNext->pvOwner );
+      xItemValue = ( ( &( pxTCB->xGenericListItem ) )->xItemValue );
+
+      if( xConstTickCount < xItemValue )
+      {
+
+
+
+
+
+       xNextTaskUnblockTime = xItemValue;
+       break;
+      }
+      else
+      {
+       ;
+      }
+
+
+      ( void ) uxListRemove( &( pxTCB->xGenericListItem ) );
+
+
+
+      if( ( ( &( pxTCB->xEventListItem ) )->pvContainer ) != ((void *)0) )
+      {
+       ( void ) uxListRemove( &( pxTCB->xEventListItem ) );
+      }
+      else
+      {
+       ;
+      }
+
+
+
+      ; { if( ( ( pxTCB )->uxPriority ) > uxTopReadyPriority ) { uxTopReadyPriority = ( ( pxTCB )->uxPriority ); } }; vListInsertEnd( &( pxReadyTasksLists[ ( pxTCB )->uxPriority ] ), &( ( pxTCB )->xGenericListItem ) );
+
+
+
+
+      {
+
+
+
+
+       if( pxTCB->uxPriority >= pxCurrentTCB->uxPriority )
+       {
+        xSwitchRequired = ( ( BaseType_t ) 1 );
+       }
+       else
+       {
+        ;
+       }
+      }
+
+     }
+    }
+   }
+  }
+
+
+
+
+
+  {
+   if( ( ( &( pxReadyTasksLists[ pxCurrentTCB->uxPriority ] ) )->uxNumberOfItems ) > ( UBaseType_t ) 1 )
+   {
+    xSwitchRequired = ( ( BaseType_t ) 1 );
+   }
+   else
+   {
+    ;
+   }
+  }
+# 2090 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ }
+ else
+ {
+  ++uxPendedTicks;
+# 2102 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ }
+
+
+ {
+  if( xYieldPending != ( ( BaseType_t ) 0 ) )
+  {
+   xSwitchRequired = ( ( BaseType_t ) 1 );
+  }
+  else
+  {
+   ;
+  }
+ }
+
+
+ return xSwitchRequired;
+}
+# 2211 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+void vTaskSwitchContext( void )
+{
+ if( uxSchedulerSuspended != ( UBaseType_t ) ( ( BaseType_t ) 0 ) )
+ {
+
+
+  xYieldPending = ( ( BaseType_t ) 1 );
+ }
+ else
+ {
+  xYieldPending = ( ( BaseType_t ) 0 );
+  ;
+
+
+  {
+
+
+
+     ulTotalRunTime = ulMainGetRunTimeCounterValue();
+# 2239 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+    if( ulTotalRunTime > ulTaskSwitchedInTime )
+    {
+     pxCurrentTCB->ulRunTimeCounter += ( ulTotalRunTime - ulTaskSwitchedInTime );
+    }
+    else
+    {
+     ;
+    }
+    ulTaskSwitchedInTime = ulTotalRunTime;
+  }
+
+
+
+  { const uint32_t * const pulStack = ( uint32_t * ) pxCurrentTCB->pxStack; const uint32_t ulCheckValue = ( uint32_t ) 0xa5a5a5a5; if( ( pulStack[ 0 ] != ulCheckValue ) || ( pulStack[ 1 ] != ulCheckValue ) || ( pulStack[ 2 ] != ulCheckValue ) || ( pulStack[ 3 ] != ulCheckValue ) ) { vApplicationStackOverflowHook( ( TaskHandle_t ) pxCurrentTCB, pxCurrentTCB->pcTaskName ); } };
+
+
+
+  { while( ( ( BaseType_t ) ( ( &( pxReadyTasksLists[ uxTopReadyPriority ] ) )->uxNumberOfItems == ( UBaseType_t ) 0 ) ) ) { if( ( uxTopReadyPriority ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); }; --uxTopReadyPriority; } { List_t * const pxConstList = ( &( pxReadyTasksLists[ uxTopReadyPriority ] ) ); ( pxConstList )->pxIndex = ( pxConstList )->pxIndex->pxNext; if( ( void * ) ( pxConstList )->pxIndex == ( void * ) &( ( pxConstList )->xListEnd ) ) { ( pxConstList )->pxIndex = ( pxConstList )->pxIndex->pxNext; } ( pxCurrentTCB ) = ( pxConstList )->pxIndex->pvOwner; }; };
+  ;
+# 2266 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ }
+}
+
+
+void vTaskPlaceOnEventList( List_t * const pxEventList, const TickType_t xTicksToWait )
+{
+TickType_t xTimeToWake;
+
+ if( ( pxEventList ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+# 2283 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ vListInsert( pxEventList, &( pxCurrentTCB->xEventListItem ) );
+
+
+
+
+ if( uxListRemove( &( pxCurrentTCB->xGenericListItem ) ) == ( UBaseType_t ) 0 )
+ {
+
+
+  ;
+ }
+ else
+ {
+  ;
+ }
+
+
+ {
+  if( xTicksToWait == ( TickType_t ) 0xffffffffUL )
+  {
+
+
+
+   vListInsertEnd( &xSuspendedTaskList, &( pxCurrentTCB->xGenericListItem ) );
+  }
+  else
+  {
+
+
+
+   xTimeToWake = xTickCount + xTicksToWait;
+   prvAddCurrentTaskToDelayedList( xTimeToWake );
+  }
+ }
+# 2326 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+}
+
+
+void vTaskPlaceOnUnorderedEventList( List_t * pxEventList, const TickType_t xItemValue, const TickType_t xTicksToWait )
+{
+TickType_t xTimeToWake;
+
+ if( ( pxEventList ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+
+
+
+ if( ( uxSchedulerSuspended != 0 ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+
+
+
+
+ ( ( &( pxCurrentTCB->xEventListItem ) )->xItemValue = ( xItemValue | 0x80000000UL ) );
+
+
+
+
+
+
+ vListInsertEnd( pxEventList, &( pxCurrentTCB->xEventListItem ) );
+
+
+
+
+ if( uxListRemove( &( pxCurrentTCB->xGenericListItem ) ) == ( UBaseType_t ) 0 )
+ {
+
+
+  ;
+ }
+ else
+ {
+  ;
+ }
+
+
+ {
+  if( xTicksToWait == ( TickType_t ) 0xffffffffUL )
+  {
+
+
+
+   vListInsertEnd( &xSuspendedTaskList, &( pxCurrentTCB->xGenericListItem ) );
+  }
+  else
+  {
+
+
+
+   xTimeToWake = xTickCount + xTicksToWait;
+   prvAddCurrentTaskToDelayedList( xTimeToWake );
+  }
+ }
+# 2392 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+}
+
+
+
+
+ void vTaskPlaceOnEventListRestricted( List_t * const pxEventList, const TickType_t xTicksToWait, const BaseType_t xWaitIndefinitely )
+ {
+ TickType_t xTimeToWake;
+
+  if( ( pxEventList ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+# 2413 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+  vListInsertEnd( pxEventList, &( pxCurrentTCB->xEventListItem ) );
+
+
+
+
+
+  if( uxListRemove( &( pxCurrentTCB->xGenericListItem ) ) == ( UBaseType_t ) 0 )
+  {
+
+
+   ;
+  }
+  else
+  {
+   ;
+  }
+# 2437 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+  {
+   if( xWaitIndefinitely == ( ( BaseType_t ) 1 ) )
+   {
+
+
+
+    vListInsertEnd( &xSuspendedTaskList, &( pxCurrentTCB->xGenericListItem ) );
+   }
+   else
+   {
+
+
+
+    xTimeToWake = xTickCount + xTicksToWait;
+    ;
+    prvAddCurrentTaskToDelayedList( xTimeToWake );
+   }
+  }
+# 2468 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ }
+
+
+
+
+BaseType_t xTaskRemoveFromEventList( const List_t * const pxEventList )
+{
+TCB_t *pxUnblockedTCB;
+BaseType_t xReturn;
+# 2491 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ pxUnblockedTCB = ( TCB_t * ) ( (&( ( pxEventList )->xListEnd ))->pxNext->pvOwner );
+ if( ( pxUnblockedTCB ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+ ( void ) uxListRemove( &( pxUnblockedTCB->xEventListItem ) );
+
+ if( uxSchedulerSuspended == ( UBaseType_t ) ( ( BaseType_t ) 0 ) )
+ {
+  ( void ) uxListRemove( &( pxUnblockedTCB->xGenericListItem ) );
+  ; { if( ( ( pxUnblockedTCB )->uxPriority ) > uxTopReadyPriority ) { uxTopReadyPriority = ( ( pxUnblockedTCB )->uxPriority ); } }; vListInsertEnd( &( pxReadyTasksLists[ ( pxUnblockedTCB )->uxPriority ] ), &( ( pxUnblockedTCB )->xGenericListItem ) );
+ }
+ else
+ {
+
+
+  vListInsertEnd( &( xPendingReadyList ), &( pxUnblockedTCB->xEventListItem ) );
+ }
+
+ if( pxUnblockedTCB->uxPriority > pxCurrentTCB->uxPriority )
+ {
+
+
+
+  xReturn = ( ( BaseType_t ) 1 );
+
+
+
+  xYieldPending = ( ( BaseType_t ) 1 );
+ }
+ else
+ {
+  xReturn = ( ( BaseType_t ) 0 );
+ }
+# 2537 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ return xReturn;
+}
+
+
+BaseType_t xTaskRemoveFromUnorderedEventList( ListItem_t * pxEventListItem, const TickType_t xItemValue )
+{
+TCB_t *pxUnblockedTCB;
+BaseType_t xReturn;
+
+
+
+ if( ( uxSchedulerSuspended != ( ( BaseType_t ) 0 ) ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+
+
+ ( ( pxEventListItem )->xItemValue = ( xItemValue | 0x80000000UL ) );
+
+
+
+ pxUnblockedTCB = ( TCB_t * ) ( ( pxEventListItem )->pvOwner );
+ if( ( pxUnblockedTCB ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+ ( void ) uxListRemove( pxEventListItem );
+
+
+
+
+ ( void ) uxListRemove( &( pxUnblockedTCB->xGenericListItem ) );
+ ; { if( ( ( pxUnblockedTCB )->uxPriority ) > uxTopReadyPriority ) { uxTopReadyPriority = ( ( pxUnblockedTCB )->uxPriority ); } }; vListInsertEnd( &( pxReadyTasksLists[ ( pxUnblockedTCB )->uxPriority ] ), &( ( pxUnblockedTCB )->xGenericListItem ) );
+
+ if( pxUnblockedTCB->uxPriority > pxCurrentTCB->uxPriority )
+ {
+
+
+
+
+  xReturn = ( ( BaseType_t ) 1 );
+
+
+
+  xYieldPending = ( ( BaseType_t ) 1 );
+ }
+ else
+ {
+  xReturn = ( ( BaseType_t ) 0 );
+ }
+
+ return xReturn;
+}
+
+
+void vTaskSetTimeOutState( TimeOut_t * const pxTimeOut )
+{
+ if( ( pxTimeOut ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+ pxTimeOut->xOverflowCount = xNumOfOverflows;
+ pxTimeOut->xTimeOnEntering = xTickCount;
+}
+
+
+BaseType_t xTaskCheckForTimeOut( TimeOut_t * const pxTimeOut, TickType_t * const pxTicksToWait )
+{
+BaseType_t xReturn;
+
+ if( ( pxTimeOut ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+ if( ( pxTicksToWait ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+
+ vPortEnterCritical();
+ {
+
+  const TickType_t xConstTickCount = xTickCount;
+
+
+
+
+
+   if( *pxTicksToWait == ( TickType_t ) 0xffffffffUL )
+   {
+    xReturn = ( ( BaseType_t ) 0 );
+   }
+   else
+
+
+  if( ( xNumOfOverflows != pxTimeOut->xOverflowCount ) && ( xConstTickCount >= pxTimeOut->xTimeOnEntering ) )
+  {
+
+
+
+
+   xReturn = ( ( BaseType_t ) 1 );
+  }
+  else if( ( xConstTickCount - pxTimeOut->xTimeOnEntering ) < *pxTicksToWait )
+  {
+
+   *pxTicksToWait -= ( xConstTickCount - pxTimeOut->xTimeOnEntering );
+   vTaskSetTimeOutState( pxTimeOut );
+   xReturn = ( ( BaseType_t ) 0 );
+  }
+  else
+  {
+   xReturn = ( ( BaseType_t ) 1 );
+  }
+ }
+ vPortExitCritical();
+
+ return xReturn;
+}
+
+
+void vTaskMissedYield( void )
+{
+ xYieldPending = ( ( BaseType_t ) 1 );
+}
+
+
+
+
+ UBaseType_t uxTaskGetTaskNumber( TaskHandle_t xTask )
+ {
+ UBaseType_t uxReturn;
+ TCB_t *pxTCB;
+
+  if( xTask != ((void *)0) )
+  {
+   pxTCB = ( TCB_t * ) xTask;
+   uxReturn = pxTCB->uxTaskNumber;
+  }
+  else
+  {
+   uxReturn = 0U;
+  }
+
+  return uxReturn;
+ }
+
+
+
+
+
+
+ void vTaskSetTaskNumber( TaskHandle_t xTask, const UBaseType_t uxHandle )
+ {
+ TCB_t *pxTCB;
+
+  if( xTask != ((void *)0) )
+  {
+   pxTCB = ( TCB_t * ) xTask;
+   pxTCB->uxTaskNumber = uxHandle;
+  }
+ }
+# 2698 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+static void prvIdleTask( void *pvParameters )
+{
+
+ ( void ) pvParameters;
+
+ for( ;; )
+ {
+
+  prvCheckTasksWaitingTermination();
+# 2741 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+  {
+   extern void vApplicationIdleHook( void );
+
+
+
+
+
+
+   vApplicationIdleHook();
+  }
+# 2797 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ }
+}
+# 2841 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+static void prvInitialiseTCBVariables( TCB_t * const pxTCB, const char * const pcName, UBaseType_t uxPriority, const MemoryRegion_t * const xRegions, const uint16_t usStackDepth )
+{
+UBaseType_t x;
+
+
+ for( x = ( UBaseType_t ) 0; x < ( UBaseType_t ) ( 12 ); x++ )
+ {
+  pxTCB->pcTaskName[ x ] = pcName[ x ];
+
+
+
+
+  if( pcName[ x ] == 0x00 )
+  {
+   break;
+  }
+  else
+  {
+   ;
+  }
+ }
+
+
+
+ pxTCB->pcTaskName[ ( 12 ) - 1 ] = '\0';
+
+
+
+ if( uxPriority >= ( UBaseType_t ) ( 7 ) )
+ {
+  uxPriority = ( UBaseType_t ) ( 7 ) - ( UBaseType_t ) 1U;
+ }
+ else
+ {
+  ;
+ }
+
+ pxTCB->uxPriority = uxPriority;
+
+ {
+  pxTCB->uxBasePriority = uxPriority;
+  pxTCB->uxMutexesHeld = 0;
+ }
+
+
+ vListInitialiseItem( &( pxTCB->xGenericListItem ) );
+ vListInitialiseItem( &( pxTCB->xEventListItem ) );
+
+
+
+ ( ( &( pxTCB->xGenericListItem ) )->pvOwner = ( void * ) ( pxTCB ) );
+
+
+ ( ( &( pxTCB->xEventListItem ) )->xItemValue = ( ( TickType_t ) ( 7 ) - ( TickType_t ) uxPriority ) );
+ ( ( &( pxTCB->xEventListItem ) )->pvOwner = ( void * ) ( pxTCB ) );
+# 2910 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ {
+  pxTCB->ulRunTimeCounter = 0UL;
+ }
+
+
+
+ {
+  vPortStoreTaskMPUSettings( &( pxTCB->xMPUSettings ), xRegions, pxTCB->pxStack, usStackDepth );
+ }
+# 2936 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ {
+  pxTCB->ulNotifiedValue = 0;
+  pxTCB->eNotifyState = eNotWaitingNotification;
+ }
+# 2948 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+}
+# 2992 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ void vTaskAllocateMPURegions( TaskHandle_t xTaskToModify, const MemoryRegion_t * const xRegions )
+ {
+ TCB_t *pxTCB;
+
+
+
+  pxTCB = ( ( ( xTaskToModify ) == ((void *)0) ) ? ( TCB_t * ) pxCurrentTCB : ( TCB_t * ) ( xTaskToModify ) );
+
+        vPortStoreTaskMPUSettings( &( pxTCB->xMPUSettings ), xRegions, ((void *)0), 0 );
+ }
+
+
+
+
+static void prvInitialiseTaskLists( void )
+{
+UBaseType_t uxPriority;
+
+ for( uxPriority = ( UBaseType_t ) 0U; uxPriority < ( UBaseType_t ) ( 7 ); uxPriority++ )
+ {
+  vListInitialise( &( pxReadyTasksLists[ uxPriority ] ) );
+ }
+
+ vListInitialise( &xDelayedTaskList1 );
+ vListInitialise( &xDelayedTaskList2 );
+ vListInitialise( &xPendingReadyList );
+
+
+ {
+  vListInitialise( &xTasksWaitingTermination );
+ }
+
+
+
+ {
+  vListInitialise( &xSuspendedTaskList );
+ }
+
+
+
+
+ pxDelayedTaskList = &xDelayedTaskList1;
+ pxOverflowDelayedTaskList = &xDelayedTaskList2;
+}
+
+
+static void prvCheckTasksWaitingTermination( void )
+{
+
+ {
+  BaseType_t xListIsEmpty;
+
+
+
+  while( uxTasksDeleted > ( UBaseType_t ) 0U )
+  {
+   vTaskSuspendAll();
+   {
+    xListIsEmpty = ( ( BaseType_t ) ( ( &xTasksWaitingTermination )->uxNumberOfItems == ( UBaseType_t ) 0 ) );
+   }
+   ( void ) xTaskResumeAll();
+
+   if( xListIsEmpty == ( ( BaseType_t ) 0 ) )
+   {
+    TCB_t *pxTCB;
+
+    vPortEnterCritical();
+    {
+     pxTCB = ( TCB_t * ) ( (&( ( ( &xTasksWaitingTermination ) )->xListEnd ))->pxNext->pvOwner );
+     ( void ) uxListRemove( &( pxTCB->xGenericListItem ) );
+     --uxCurrentNumberOfTasks;
+     --uxTasksDeleted;
+    }
+    vPortExitCritical();
+
+    prvDeleteTCB( pxTCB );
+   }
+   else
+   {
+    ;
+   }
+  }
+ }
+
+}
+
+
+static void prvAddCurrentTaskToDelayedList( const TickType_t xTimeToWake )
+{
+
+ ( ( &( pxCurrentTCB->xGenericListItem ) )->xItemValue = ( xTimeToWake ) );
+
+ if( xTimeToWake < xTickCount )
+ {
+
+  vListInsert( pxOverflowDelayedTaskList, &( pxCurrentTCB->xGenericListItem ) );
+ }
+ else
+ {
+
+  vListInsert( pxDelayedTaskList, &( pxCurrentTCB->xGenericListItem ) );
+
+
+
+
+  if( xTimeToWake < xNextTaskUnblockTime )
+  {
+   xNextTaskUnblockTime = xTimeToWake;
+  }
+  else
+  {
+   ;
+  }
+ }
+}
+
+
+static TCB_t *prvAllocateTCBAndStack( const uint16_t usStackDepth, StackType_t * const puxStackBuffer )
+{
+TCB_t *pxNewTCB;
+# 3138 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+ {
+ StackType_t *pxStack;
+
+
+  pxStack = ( StackType_t * ) ( ( ( puxStackBuffer ) == ((void *)0) ) ? ( pvPortMalloc( ( ( ( ( size_t ) usStackDepth ) * sizeof( StackType_t ) ) ) ) ) : ( puxStackBuffer ) );
+
+  if( pxStack != ((void *)0) )
+  {
+
+
+   pxNewTCB = ( TCB_t * ) pvPortMalloc( sizeof( TCB_t ) );
+
+   if( pxNewTCB != ((void *)0) )
+   {
+
+    pxNewTCB->pxStack = pxStack;
+   }
+   else
+   {
+
+
+    vPortFree( pxStack );
+   }
+  }
+  else
+  {
+   pxNewTCB = ((void *)0);
+  }
+ }
+
+
+ if( pxNewTCB != ((void *)0) )
+ {
+
+
+  {
+
+   ( void ) memset( pxNewTCB->pxStack, ( int ) ( 0xa5U ), ( size_t ) usStackDepth * sizeof( StackType_t ) );
+  }
+
+ }
+
+ return pxNewTCB;
+}
+
+
+
+
+ static UBaseType_t prvListTaskWithinSingleList( TaskStatus_t *pxTaskStatusArray, List_t *pxList, eTaskState eState )
+ {
+ volatile TCB_t *pxNextTCB, *pxFirstTCB;
+ UBaseType_t uxTask = 0;
+
+  if( ( ( pxList )->uxNumberOfItems ) > ( UBaseType_t ) 0 )
+  {
+   { List_t * const pxConstList = ( pxList ); ( pxConstList )->pxIndex = ( pxConstList )->pxIndex->pxNext; if( ( void * ) ( pxConstList )->pxIndex == ( void * ) &( ( pxConstList )->xListEnd ) ) { ( pxConstList )->pxIndex = ( pxConstList )->pxIndex->pxNext; } ( pxFirstTCB ) = ( pxConstList )->pxIndex->pvOwner; };
+
+
+
+
+
+   do
+   {
+    { List_t * const pxConstList = ( pxList ); ( pxConstList )->pxIndex = ( pxConstList )->pxIndex->pxNext; if( ( void * ) ( pxConstList )->pxIndex == ( void * ) &( ( pxConstList )->xListEnd ) ) { ( pxConstList )->pxIndex = ( pxConstList )->pxIndex->pxNext; } ( pxNextTCB ) = ( pxConstList )->pxIndex->pvOwner; };
+
+    pxTaskStatusArray[ uxTask ].xHandle = ( TaskHandle_t ) pxNextTCB;
+    pxTaskStatusArray[ uxTask ].pcTaskName = ( const char * ) &( pxNextTCB->pcTaskName [ 0 ] );
+    pxTaskStatusArray[ uxTask ].xTaskNumber = pxNextTCB->uxTCBNumber;
+    pxTaskStatusArray[ uxTask ].eCurrentState = eState;
+    pxTaskStatusArray[ uxTask ].uxCurrentPriority = pxNextTCB->uxPriority;
+
+
+    {
+
+
+
+     if( eState == eSuspended )
+     {
+      if( ( ( &( pxNextTCB->xEventListItem ) )->pvContainer ) != ((void *)0) )
+      {
+       pxTaskStatusArray[ uxTask ].eCurrentState = eBlocked;
+      }
+     }
+    }
+
+
+
+    {
+     pxTaskStatusArray[ uxTask ].uxBasePriority = pxNextTCB->uxBasePriority;
+    }
+
+
+
+
+
+
+
+    {
+     pxTaskStatusArray[ uxTask ].ulRunTimeCounter = pxNextTCB->ulRunTimeCounter;
+    }
+# 3249 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+    {
+     pxTaskStatusArray[ uxTask ].usStackHighWaterMark = prvTaskCheckFreeStackSpace( ( uint8_t * ) pxNextTCB->pxStack );
+    }
+
+
+    uxTask++;
+
+   } while( pxNextTCB != pxFirstTCB );
+  }
+  else
+  {
+   ;
+  }
+
+  return uxTask;
+ }
+
+
+
+
+
+
+ static uint16_t prvTaskCheckFreeStackSpace( const uint8_t * pucStackByte )
+ {
+ uint32_t ulCount = 0U;
+
+  while( *pucStackByte == ( uint8_t ) ( 0xa5U ) )
+  {
+   pucStackByte -= ( -1 );
+   ulCount++;
+  }
+
+  ulCount /= ( uint32_t ) sizeof( StackType_t );
+
+  return ( uint16_t ) ulCount;
+ }
+
+
+
+
+
+
+ UBaseType_t uxTaskGetStackHighWaterMark( TaskHandle_t xTask )
+ {
+ TCB_t *pxTCB;
+ uint8_t *pucEndOfStack;
+ UBaseType_t uxReturn;
+
+  pxTCB = ( ( ( xTask ) == ((void *)0) ) ? ( TCB_t * ) pxCurrentTCB : ( TCB_t * ) ( xTask ) );
+
+
+  {
+   pucEndOfStack = ( uint8_t * ) pxTCB->pxStack;
+  }
+
+
+
+
+
+
+  uxReturn = ( UBaseType_t ) prvTaskCheckFreeStackSpace( pucEndOfStack );
+
+  return uxReturn;
+ }
+
+
+
+
+
+
+ static void prvDeleteTCB( TCB_t *pxTCB )
+ {
+
+
+
+  ( void ) pxTCB;
+# 3335 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+  {
+
+
+   if( pxTCB->xUsingStaticallyAllocatedStack == ( ( BaseType_t ) 0 ) )
+   {
+    vPortFree( pxTCB->pxStack );
+   }
+  }
+
+
+
+
+
+
+  vPortFree( pxTCB );
+ }
+
+
+
+
+static void prvResetNextTaskUnblockTime( void )
+{
+TCB_t *pxTCB;
+
+ if( ( ( BaseType_t ) ( ( pxDelayedTaskList )->uxNumberOfItems == ( UBaseType_t ) 0 ) ) != ( ( BaseType_t ) 0 ) )
+ {
+
+
+
+
+  xNextTaskUnblockTime = ( TickType_t ) 0xffffffffUL;
+ }
+ else
+ {
+
+
+
+
+  ( pxTCB ) = ( TCB_t * ) ( (&( ( pxDelayedTaskList )->xListEnd ))->pxNext->pvOwner );
+  xNextTaskUnblockTime = ( ( &( ( pxTCB )->xGenericListItem ) )->xItemValue );
+ }
+}
+
+
+
+
+ TaskHandle_t xTaskGetCurrentTaskHandle( void )
+ {
+ TaskHandle_t xReturn;
+
+
+
+
+  xReturn = pxCurrentTCB;
+
+  return xReturn;
+ }
+
+
+
+
+
+
+ BaseType_t xTaskGetSchedulerState( void )
+ {
+ BaseType_t xReturn;
+
+  if( xSchedulerRunning == ( ( BaseType_t ) 0 ) )
+  {
+   xReturn = ( ( BaseType_t ) 1 );
+  }
+  else
+  {
+   if( uxSchedulerSuspended == ( UBaseType_t ) ( ( BaseType_t ) 0 ) )
+   {
+    xReturn = ( ( BaseType_t ) 2 );
+   }
+   else
+   {
+    xReturn = ( ( BaseType_t ) 0 );
+   }
+  }
+
+  return xReturn;
+ }
+
+
+
+
+
+
+ void vTaskPriorityInherit( TaskHandle_t const pxMutexHolder )
+ {
+ TCB_t * const pxTCB = ( TCB_t * ) pxMutexHolder;
+
+
+
+  if( pxMutexHolder != ((void *)0) )
+  {
+
+
+
+   if( pxTCB->uxPriority < pxCurrentTCB->uxPriority )
+   {
+
+
+
+    if( ( ( ( &( pxTCB->xEventListItem ) )->xItemValue ) & 0x80000000UL ) == 0UL )
+    {
+     ( ( &( pxTCB->xEventListItem ) )->xItemValue = ( ( TickType_t ) ( 7 ) - ( TickType_t ) pxCurrentTCB->uxPriority ) );
+    }
+    else
+    {
+     ;
+    }
+
+
+
+    if( ( ( BaseType_t ) ( ( &( pxTCB->xGenericListItem ) )->pvContainer == ( void * ) ( &( pxReadyTasksLists[ pxTCB->uxPriority ] ) ) ) ) != ( ( BaseType_t ) 0 ) )
+    {
+     if( uxListRemove( &( pxTCB->xGenericListItem ) ) == ( UBaseType_t ) 0 )
+     {
+      ;
+     }
+     else
+     {
+      ;
+     }
+
+
+     pxTCB->uxPriority = pxCurrentTCB->uxPriority;
+     ; { if( ( ( pxTCB )->uxPriority ) > uxTopReadyPriority ) { uxTopReadyPriority = ( ( pxTCB )->uxPriority ); } }; vListInsertEnd( &( pxReadyTasksLists[ ( pxTCB )->uxPriority ] ), &( ( pxTCB )->xGenericListItem ) );
+    }
+    else
+    {
+
+     pxTCB->uxPriority = pxCurrentTCB->uxPriority;
+    }
+
+    ;
+   }
+   else
+   {
+    ;
+   }
+  }
+  else
+  {
+   ;
+  }
+ }
+
+
+
+
+
+
+ BaseType_t xTaskPriorityDisinherit( TaskHandle_t const pxMutexHolder )
+ {
+ TCB_t * const pxTCB = ( TCB_t * ) pxMutexHolder;
+ BaseType_t xReturn = ( ( BaseType_t ) 0 );
+
+  if( pxMutexHolder != ((void *)0) )
+  {
+
+
+
+
+   if( ( pxTCB == pxCurrentTCB ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+
+   if( ( pxTCB->uxMutexesHeld ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+   ( pxTCB->uxMutexesHeld )--;
+
+
+
+   if( pxTCB->uxPriority != pxTCB->uxBasePriority )
+   {
+
+    if( pxTCB->uxMutexesHeld == ( UBaseType_t ) 0 )
+    {
+
+
+
+
+
+     if( uxListRemove( &( pxTCB->xGenericListItem ) ) == ( UBaseType_t ) 0 )
+     {
+      ;
+     }
+     else
+     {
+      ;
+     }
+
+
+
+     ;
+     pxTCB->uxPriority = pxTCB->uxBasePriority;
+
+
+
+
+     ( ( &( pxTCB->xEventListItem ) )->xItemValue = ( ( TickType_t ) ( 7 ) - ( TickType_t ) pxTCB->uxPriority ) );
+     ; { if( ( ( pxTCB )->uxPriority ) > uxTopReadyPriority ) { uxTopReadyPriority = ( ( pxTCB )->uxPriority ); } }; vListInsertEnd( &( pxReadyTasksLists[ ( pxTCB )->uxPriority ] ), &( ( pxTCB )->xGenericListItem ) );
+# 3548 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+     xReturn = ( ( BaseType_t ) 1 );
+    }
+    else
+    {
+     ;
+    }
+   }
+   else
+   {
+    ;
+   }
+  }
+  else
+  {
+   ;
+  }
+
+  return xReturn;
+ }
+# 3876 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+TickType_t uxTaskResetEventItemValue( void )
+{
+TickType_t uxReturn;
+
+ uxReturn = ( ( &( pxCurrentTCB->xEventListItem ) )->xItemValue );
+
+
+
+ ( ( &( pxCurrentTCB->xEventListItem ) )->xItemValue = ( ( ( TickType_t ) ( 7 ) - ( TickType_t ) pxCurrentTCB->uxPriority ) ) );
+
+ return uxReturn;
+}
+
+
+
+
+ void *pvTaskIncrementMutexHeldCount( void )
+ {
+
+
+  if( pxCurrentTCB != ((void *)0) )
+  {
+   ( pxCurrentTCB->uxMutexesHeld )++;
+  }
+
+  return pxCurrentTCB;
+ }
+
+
+
+
+
+
+ uint32_t ulTaskNotifyTake( BaseType_t xClearCountOnExit, TickType_t xTicksToWait )
+ {
+ TickType_t xTimeToWake;
+ uint32_t ulReturn;
+
+  vPortEnterCritical();
+  {
+
+   if( pxCurrentTCB->ulNotifiedValue == 0UL )
+   {
+
+    pxCurrentTCB->eNotifyState = eWaitingNotification;
+
+    if( xTicksToWait > ( TickType_t ) 0 )
+    {
+
+
+     if( uxListRemove( &( pxCurrentTCB->xGenericListItem ) ) == ( UBaseType_t ) 0 )
+     {
+
+
+
+      ;
+     }
+     else
+     {
+      ;
+     }
+
+
+     {
+      if( xTicksToWait == ( TickType_t ) 0xffffffffUL )
+      {
+
+
+
+
+       vListInsertEnd( &xSuspendedTaskList, &( pxCurrentTCB->xGenericListItem ) );
+      }
+      else
+      {
+
+
+
+
+       xTimeToWake = xTickCount + xTicksToWait;
+       prvAddCurrentTaskToDelayedList( xTimeToWake );
+      }
+     }
+# 3969 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+     ;
+
+
+
+
+
+     *(( ( volatile uint32_t *) 0xe000ed04 )) = 0x10000000;
+    }
+    else
+    {
+     ;
+    }
+   }
+   else
+   {
+    ;
+   }
+  }
+  vPortExitCritical();
+
+  vPortEnterCritical();
+  {
+   ;
+   ulReturn = pxCurrentTCB->ulNotifiedValue;
+
+   if( ulReturn != 0UL )
+   {
+    if( xClearCountOnExit != ( ( BaseType_t ) 0 ) )
+    {
+     pxCurrentTCB->ulNotifiedValue = 0UL;
+    }
+    else
+    {
+     ( pxCurrentTCB->ulNotifiedValue )--;
+    }
+   }
+   else
+   {
+    ;
+   }
+
+   pxCurrentTCB->eNotifyState = eNotWaitingNotification;
+  }
+  vPortExitCritical();
+
+  return ulReturn;
+ }
+
+
+
+
+
+
+ BaseType_t xTaskNotifyWait( uint32_t ulBitsToClearOnEntry, uint32_t ulBitsToClearOnExit, uint32_t *pulNotificationValue, TickType_t xTicksToWait )
+ {
+ TickType_t xTimeToWake;
+ BaseType_t xReturn;
+
+  vPortEnterCritical();
+  {
+
+   if( pxCurrentTCB->eNotifyState != eNotified )
+   {
+
+
+
+    pxCurrentTCB->ulNotifiedValue &= ~ulBitsToClearOnEntry;
+
+
+    pxCurrentTCB->eNotifyState = eWaitingNotification;
+
+    if( xTicksToWait > ( TickType_t ) 0 )
+    {
+
+
+     if( uxListRemove( &( pxCurrentTCB->xGenericListItem ) ) == ( UBaseType_t ) 0 )
+     {
+
+
+
+      ;
+     }
+     else
+     {
+      ;
+     }
+
+
+     {
+      if( xTicksToWait == ( TickType_t ) 0xffffffffUL )
+      {
+
+
+
+
+       vListInsertEnd( &xSuspendedTaskList, &( pxCurrentTCB->xGenericListItem ) );
+      }
+      else
+      {
+
+
+
+
+       xTimeToWake = xTickCount + xTicksToWait;
+       prvAddCurrentTaskToDelayedList( xTimeToWake );
+      }
+     }
+# 4087 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+     ;
+
+
+
+
+
+     *(( ( volatile uint32_t *) 0xe000ed04 )) = 0x10000000;
+    }
+    else
+    {
+     ;
+    }
+   }
+   else
+   {
+    ;
+   }
+  }
+  vPortExitCritical();
+
+  vPortEnterCritical();
+  {
+   ;
+
+   if( pulNotificationValue != ((void *)0) )
+   {
+
+
+    *pulNotificationValue = pxCurrentTCB->ulNotifiedValue;
+   }
+
+
+
+
+
+   if( pxCurrentTCB->eNotifyState == eWaitingNotification )
+   {
+
+    xReturn = ( ( BaseType_t ) 0 );
+   }
+   else
+   {
+
+
+    pxCurrentTCB->ulNotifiedValue &= ~ulBitsToClearOnExit;
+    xReturn = ( ( BaseType_t ) 1 );
+   }
+
+   pxCurrentTCB->eNotifyState = eNotWaitingNotification;
+  }
+  vPortExitCritical();
+
+  return xReturn;
+ }
+
+
+
+
+
+
+ BaseType_t xTaskGenericNotify( TaskHandle_t xTaskToNotify, uint32_t ulValue, eNotifyAction eAction, uint32_t *pulPreviousNotificationValue )
+ {
+ TCB_t * pxTCB;
+ eNotifyValue eOriginalNotifyState;
+ BaseType_t xReturn = ( ( ( BaseType_t ) 1 ) );
+
+  if( ( xTaskToNotify ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+  pxTCB = ( TCB_t * ) xTaskToNotify;
+
+  vPortEnterCritical();
+  {
+   if( pulPreviousNotificationValue != ((void *)0) )
+   {
+    *pulPreviousNotificationValue = pxTCB->ulNotifiedValue;
+   }
+
+   eOriginalNotifyState = pxTCB->eNotifyState;
+
+   pxTCB->eNotifyState = eNotified;
+
+   switch( eAction )
+   {
+    case eSetBits :
+     pxTCB->ulNotifiedValue |= ulValue;
+     break;
+
+    case eIncrement :
+     ( pxTCB->ulNotifiedValue )++;
+     break;
+
+    case eSetValueWithOverwrite :
+     pxTCB->ulNotifiedValue = ulValue;
+     break;
+
+    case eSetValueWithoutOverwrite :
+     if( eOriginalNotifyState != eNotified )
+     {
+      pxTCB->ulNotifiedValue = ulValue;
+     }
+     else
+     {
+
+      xReturn = ( ( ( BaseType_t ) 0 ) );
+     }
+     break;
+
+    case eNoAction:
+
+
+     break;
+   }
+
+   ;
+
+
+
+   if( eOriginalNotifyState == eWaitingNotification )
+   {
+    ( void ) uxListRemove( &( pxTCB->xGenericListItem ) );
+    ; { if( ( ( pxTCB )->uxPriority ) > uxTopReadyPriority ) { uxTopReadyPriority = ( ( pxTCB )->uxPriority ); } }; vListInsertEnd( &( pxReadyTasksLists[ ( pxTCB )->uxPriority ] ), &( ( pxTCB )->xGenericListItem ) );
+
+
+    if( ( ( ( &( pxTCB->xEventListItem ) )->pvContainer ) == ((void *)0) ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+# 4227 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+    if( pxTCB->uxPriority > pxCurrentTCB->uxPriority )
+    {
+
+
+     *(( ( volatile uint32_t *) 0xe000ed04 )) = 0x10000000;
+    }
+    else
+    {
+     ;
+    }
+   }
+   else
+   {
+    ;
+   }
+  }
+  vPortExitCritical();
+
+  return xReturn;
+ }
+
+
+
+
+
+
+ BaseType_t xTaskGenericNotifyFromISR( TaskHandle_t xTaskToNotify, uint32_t ulValue, eNotifyAction eAction, uint32_t *pulPreviousNotificationValue, BaseType_t *pxHigherPriorityTaskWoken )
+ {
+ TCB_t * pxTCB;
+ eNotifyValue eOriginalNotifyState;
+ BaseType_t xReturn = ( ( ( BaseType_t ) 1 ) );
+ UBaseType_t uxSavedInterruptStatus;
+
+  if( ( xTaskToNotify ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+# 4278 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+  ;
+
+  pxTCB = ( TCB_t * ) xTaskToNotify;
+
+  uxSavedInterruptStatus = 0;__asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" );
+  {
+   if( pulPreviousNotificationValue != ((void *)0) )
+   {
+    *pulPreviousNotificationValue = pxTCB->ulNotifiedValue;
+   }
+
+   eOriginalNotifyState = pxTCB->eNotifyState;
+   pxTCB->eNotifyState = eNotified;
+
+   switch( eAction )
+   {
+    case eSetBits :
+     pxTCB->ulNotifiedValue |= ulValue;
+     break;
+
+    case eIncrement :
+     ( pxTCB->ulNotifiedValue )++;
+     break;
+
+    case eSetValueWithOverwrite :
+     pxTCB->ulNotifiedValue = ulValue;
+     break;
+
+    case eSetValueWithoutOverwrite :
+     if( eOriginalNotifyState != eNotified )
+     {
+      pxTCB->ulNotifiedValue = ulValue;
+     }
+     else
+     {
+
+      xReturn = ( ( ( BaseType_t ) 0 ) );
+     }
+     break;
+
+    case eNoAction :
+
+
+     break;
+   }
+
+   ;
+
+
+
+   if( eOriginalNotifyState == eWaitingNotification )
+   {
+
+    if( ( ( ( &( pxTCB->xEventListItem ) )->pvContainer ) == ((void *)0) ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+
+    if( uxSchedulerSuspended == ( UBaseType_t ) ( ( BaseType_t ) 0 ) )
+    {
+     ( void ) uxListRemove( &( pxTCB->xGenericListItem ) );
+     ; { if( ( ( pxTCB )->uxPriority ) > uxTopReadyPriority ) { uxTopReadyPriority = ( ( pxTCB )->uxPriority ); } }; vListInsertEnd( &( pxReadyTasksLists[ ( pxTCB )->uxPriority ] ), &( ( pxTCB )->xGenericListItem ) );
+    }
+    else
+    {
+
+
+     vListInsertEnd( &( xPendingReadyList ), &( pxTCB->xEventListItem ) );
+    }
+
+    if( pxTCB->uxPriority > pxCurrentTCB->uxPriority )
+    {
+
+
+     if( pxHigherPriorityTaskWoken != ((void *)0) )
+     {
+      *pxHigherPriorityTaskWoken = ( ( BaseType_t ) 1 );
+     }
+    }
+    else
+    {
+     ;
+    }
+   }
+  }
+  __asm volatile ( "	mov r0, #0					\n" "	msr basepri, r0				\n" :::"r0" );(void)uxSavedInterruptStatus;
+
+  return xReturn;
+ }
+
+
+
+
+
+
+ void vTaskNotifyGiveFromISR( TaskHandle_t xTaskToNotify, BaseType_t *pxHigherPriorityTaskWoken )
+ {
+ TCB_t * pxTCB;
+ eNotifyValue eOriginalNotifyState;
+ UBaseType_t uxSavedInterruptStatus;
+
+  if( ( xTaskToNotify ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+# 4394 "../Source/FreeRTOS-Products/FreeRTOS/tasks.c"
+  ;
+
+  pxTCB = ( TCB_t * ) xTaskToNotify;
+
+  uxSavedInterruptStatus = 0;__asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" );
+  {
+   eOriginalNotifyState = pxTCB->eNotifyState;
+   pxTCB->eNotifyState = eNotified;
+
+
+
+   ( pxTCB->ulNotifiedValue )++;
+
+   ;
+
+
+
+   if( eOriginalNotifyState == eWaitingNotification )
+   {
+
+    if( ( ( ( &( pxTCB->xEventListItem ) )->pvContainer ) == ((void *)0) ) == 0 ) { __asm volatile ( "	mov r0, %0								\n" "	msr basepri, r0							\n" ::"i"(( ( 5 ) << (8 - 5) )):"r0" ); for( ;; ); };
+
+    if( uxSchedulerSuspended == ( UBaseType_t ) ( ( BaseType_t ) 0 ) )
+    {
+     ( void ) uxListRemove( &( pxTCB->xGenericListItem ) );
+     ; { if( ( ( pxTCB )->uxPriority ) > uxTopReadyPriority ) { uxTopReadyPriority = ( ( pxTCB )->uxPriority ); } }; vListInsertEnd( &( pxReadyTasksLists[ ( pxTCB )->uxPriority ] ), &( ( pxTCB )->xGenericListItem ) );
+    }
+    else
+    {
+
+
+     vListInsertEnd( &( xPendingReadyList ), &( pxTCB->xEventListItem ) );
+    }
+
+    if( pxTCB->uxPriority > pxCurrentTCB->uxPriority )
+    {
+
+
+     if( pxHigherPriorityTaskWoken != ((void *)0) )
+     {
+      *pxHigherPriorityTaskWoken = ( ( BaseType_t ) 1 );
+     }
+    }
+    else
+    {
+     ;
+    }
+   }
+  }
+  __asm volatile ( "	mov r0, #0					\n" "	msr basepri, r0				\n" :::"r0" );(void)uxSavedInterruptStatus;
+ }
+
+
+
+
+
+
+
+ BaseType_t xTaskNotifyStateClear( TaskHandle_t xTask )
+ {
+ TCB_t *pxTCB;
+ BaseType_t xReturn;
+
+  pxTCB = ( TCB_t * ) xTask;
+
+
+
+  pxTCB = ( ( ( pxTCB ) == ((void *)0) ) ? ( TCB_t * ) pxCurrentTCB : ( TCB_t * ) ( pxTCB ) );
+
+  vPortEnterCritical();
+  {
+   if( pxTCB->eNotifyState == eNotified )
+   {
+    pxTCB->eNotifyState = eNotWaitingNotification;
+    xReturn = ( ( ( BaseType_t ) 1 ) );
+   }
+   else
+   {
+    xReturn = ( ( ( BaseType_t ) 0 ) );
+   }
+  }
+  vPortExitCritical();
+
+  return xReturn;
+ }
